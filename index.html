@@ -58,9 +58,12 @@
 
         @media (min-width: 900px) {
             #flipbook {
-                width: 800px;
+                /* width: 800px; */
+                max-width: 80%;
             }
         }
+
+      
     </style>
 </head>
 <body >
@@ -115,7 +118,13 @@
             // Update display mode based on screen size
             function updateDisplay() {
                 const width = $(window).width();
-                if (width < 900) {
+                if (width < 375) {
+                    $('#flipbook').turn('display', 'single');
+                    $('#flipbook').turn('size', 300, 600);
+                } else if (width < 400) {
+                    $('#flipbook').turn('display', 'single');
+                    $('#flipbook').turn('size', 350, 600);
+                } else if (width < 900) {
                     $('#flipbook').turn('display', 'single');
                     $('#flipbook').turn('size', 400, 600);
                 } else {
