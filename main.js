@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 $(document).ready(function () {
     // Inicializar el flipbook con Turn.js
     $('#flipbook').turn({
@@ -18,30 +11,29 @@ $(document).ready(function () {
         pages: 19,
     });
 
-    // Función para cargar una página HTML externa y extraer su contenido del <body>S
-    function loadPage(pageNumber) {
-        fetch(`pages/page${pageNumber}.html`)
-            .then(response => {
+    // Función asíncrona para cargar una página HTML externa y extraer su contenido del <body>
+    async function loadPagesSequentially() {
+        for (let i = 1; i <= 19; i++) {
+            try {
+                const response = await fetch(`pages/page${i}.html`);
                 if (!response.ok) {
-                    throw new Error(`Error al cargar la página ${pageNumber}`);
+                    throw new Error(`Error al cargar la página ${i}`);
                 }
-                return response.text(); // Convertir respuesta a texto
-            })
-            .then(htmlContent => {
+                const htmlContent = await response.text(); // Convertir respuesta a texto
                 const parser = new DOMParser(); // Crear un parser HTML
                 const doc = parser.parseFromString(htmlContent, 'text/html'); // Parsear el HTML
                 const bodyContent = doc.body.innerHTML; // Extraer el contenido del <body>
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`); // Crear el elemento jQuery
-                $('#flipbook').turn('addPage', pageElement, pageNumber); // Agregar la página
-            })
-            .catch(error => console.error(`Error: ${error.message}`));
+                $('#flipbook').turn('addPage', pageElement, i); // Agregar la página
+            } catch (error) {
+                console.error(`Error: ${error.message}`);
+            }
+        }
     }
 
-    // Cargar las páginas dinámicamente
-    for (let i = 1; i <= 19; i++) {
-        loadPage(i); // Cargar las páginas 1 y 2
-    }
+    // Llamar a la función para cargar las páginas secuencialmente
+    loadPagesSequentially();
 
     // Control de clics para navegar entre páginas
     $('#flipbook').on('click', function (e) {
