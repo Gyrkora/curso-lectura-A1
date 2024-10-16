@@ -60,7 +60,9 @@ body {
     flex-direction: column;
     border: 1px solid #ddd;
     box-sizing: border-box;
-    overflow: auto; /* Allow scrolling within the page */
+    /* overflow: auto;  */
+    overflow-y: auto;  /* Enable vertical scroll when content overflows */
+    overflow-x: hidden;  /* Prevent horizontal scroll if it's not needed */
     padding: 20px; /* Add padding to avoid content touching edges */
     background-color: white;
 }
