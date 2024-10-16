@@ -8,135 +8,22 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="styless/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <!-- jQuery and Turn.js from CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
 
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        #flipbook {
-            width: 400px;
-            height: 600px;
-            background-color: white;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-
-        .page {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            border: 1px solid #ddd;
-            box-sizing: border-box;
-            overflow: hidden;
-            background-color: white;
-        }
-
-        .page h2 {
-            margin: 0;
-            padding: 10px;
-            font-size: 24px;
-        }
-
-        .page p, .page img {
-            margin: 10px;
-            padding: 0;
-        }
-
-        @media (min-width: 900px) {
-            #flipbook {
-                /* width: 800px; */
-                max-width: 80%;
-            }
-        }
-
-      
-    </style>
 </head>
 <body >
-    <!-- <div class="container justify-content-center align-items"> -->
         <div id="flipbook" >
-            <div class="page">
-                <h2 class="tow-red-color">La vida en El Amazonas</h2>
-                <p class="text-center">Vamos a descubrir qué nos cuenta Nemonte sobre los desafíos y la experiencia de vivir en el pulmón más grande del mundo</p>
-                <img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAE_hC0LZEr2kguF6wOgs1-uuVZ7uFSpdZ0Q&s" alt="Nemonte">
-            </div>
-            <div class="page">
-                <h2>Page 2</h2>
-                <img src="https://via.placeholder.com/300x200" alt="Example Image">
-            </div>
-            <div class="page">
-                <h2>Page 3</h2>
-                <p>This is another page with some text content.</p>
-            </div>
-            <div class="page">
-                <h2>Page 4</h2>
-                <img src="https://via.placeholder.com/300x200" alt="Another Image">
-            </div>
+            <p>.</p>
+
+  
+            
         </div>
-        <!-- </div> -->
    
 
-    <script>
-        $(document).ready(function () {
-            // Initialize the flipbook with proper settings
-            $('#flipbook').turn({
-                width: 400,
-                height: 600,
-                autoCenter: true,
-                display: 'single', // Start with single-page mode
-                duration: 600, // Flip animation duration
-                gradients: true,
-                elevation: 50
-            });
-
-            // Handle mouse click to flip pages
-            $('#flipbook').on('click', function (e) {
-                const flipbookOffset = $(this).offset();
-                const clickPosition = e.pageX - flipbookOffset.left;
-
-                if (clickPosition < $(this).width() / 2) {
-                    $('#flipbook').turn('previous'); // Go to the previous page
-                } else {
-                    $('#flipbook').turn('next'); // Go to the next page
-                }
-            });
-
-            // Update display mode based on screen size
-            function updateDisplay() {
-                const width = $(window).width();
-                if (width < 375) {
-                    $('#flipbook').turn('display', 'single');
-                    $('#flipbook').turn('size', 300, 600);
-                } else if (width < 400) {
-                    $('#flipbook').turn('display', 'single');
-                    $('#flipbook').turn('size', 350, 600);
-                } else if (width < 900) {
-                    $('#flipbook').turn('display', 'single');
-                    $('#flipbook').turn('size', 400, 600);
-                } else {
-                    $('#flipbook').turn('display', 'double');
-                    $('#flipbook').turn('size', 800, 600);
-                }
-            }
-
-            // Run the function on page load and window resize
-            updateDisplay();
-            $(window).resize(updateDisplay);
-        });
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>

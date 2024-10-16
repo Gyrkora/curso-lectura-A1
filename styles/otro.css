@@ -1,0 +1,78 @@
+:root {
+    --light_green: #f8ffe5;
+}
+
+h1, h2 {
+    color: #bd1212;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.tow-red-color {
+    color: #bd1212;
+}
+
+.in-bold {
+    font-weight: bold;
+}
+
+.p-right {
+    padding: 5px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+#flipbook {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+    background-color: white;
+
+
+    overflow: auto;
+ 
+  
+}
+
+.page h2 {
+    margin: 0;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.page p, .page img {
+    margin: 10px;
+    padding: 0;
+}
+
+@media (min-width: 900px) {
+    #flipbook {
+        /* width: 800px; */
+        max-width: 80%;
+    }
+}
+/* 
+
