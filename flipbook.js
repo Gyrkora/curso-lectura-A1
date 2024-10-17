@@ -69,17 +69,12 @@ class Flipbook {
             }
         });
     
-        // Pronunciar la palabra al hacer clic o tocar en párrafos y encabezados, y resaltarla
-        this.flipbook.on('click touchstart', 'p, h1, h2, h3, h4, h5, h6', (e) => {
-            // Prevenir que el clic o toque en una palabra también cause el cambio de página
-            e.stopPropagation();
-    
-            // Obtener la palabra que se ha clickeado o tocado
+        // Detectar la selección de una palabra y pronunciarla
+        document.addEventListener('selectionchange', () => {
             const selectedWord = window.getSelection().toString().trim();
             if (selectedWord) {
-                const selection = window.getSelection();
-                const range = selection.getRangeAt(0);
-                this.highlightAndSpeakWord(selectedWord, range);
+                // Pronunciar la palabra seleccionada
+                this.speakWord(selectedWord);
             }
         });
     }
