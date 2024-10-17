@@ -8,12 +8,12 @@ $(document).ready(function () {
         duration: 600,
         gradients: true,
         elevation: 50,
-        pages: 19,
+        pages: 25,
     });
 
     // Función asíncrona para cargar una página HTML externa y extraer su contenido del <body>
     async function loadPagesSequentially() {
-        for (let i = 1; i <= 19; i++) {
+        for (let i = 1; i <= 25; i++) {
             try {
                 const response = await fetch(`pages/page${i}.html`);
                 if (!response.ok) {
