@@ -58,7 +58,7 @@ class Flipbook {
             const flipbookWidth = this.flipbook.width();
     
             // Definir un área en la parte inferior para cambiar de página (por ejemplo, el 25% inferior)
-            const bottomThreshold = flipbookHeight * 0.40;
+            const bottomThreshold = flipbookHeight * 0.75;
     
             if (clickPositionY >= bottomThreshold) {
                 if (clickPositionX < flipbookWidth / 2) {
