@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // Initialize the flipbook with Turn.js
+    // Inicializar el flipbook con Turn.js
     $('#flipbook').turn({
         width: 400,
         height: 600,
@@ -8,89 +8,46 @@ $(document).ready(function () {
         duration: 600,
         gradients: true,
         elevation: 50,
+        pages: 25,
     });
 
-    // Function to load an external HTML page and wrap each word in a span
-    function loadPage(pageNumber) {
-        console.log(`Loading page ${pageNumber}`); // Debug log to verify page loading
-        fetch(`pages/page${pageNumber}.html`)
-            .then(response => {
+    // Función asíncrona para cargar una página HTML externa y extraer su contenido del <body>
+    async function loadPagesSequentially() {
+        for (let i = 1; i <= 25; i++) {
+            try {
+                const response = await fetch(`pages/page${i}.html`);
                 if (!response.ok) {
-                    throw new Error(`Error loading page ${pageNumber}`);
+                    throw new Error(`Error al cargar la página ${i}`);
                 }
-                return response.text(); // Convert response to text
-            })
-            .then(htmlContent => {
-                console.log(`Page ${pageNumber} loaded successfully`);
-                const parser = new DOMParser(); // Create an HTML parser
-                const doc = parser.parseFromString(htmlContent, 'text/html'); // Parse the HTML
-                const bodyContent = doc.body; // Extract the <body> content as an element
+                const htmlContent = await response.text(); // Convertir respuesta a texto
+                const parser = new DOMParser(); // Crear un parser HTML
+                const doc = parser.parseFromString(htmlContent, 'text/html'); // Parsear el HTML
+                const bodyContent = doc.body.innerHTML; // Extraer el contenido del <body>
 
-                // Recursively wrap each word in a <span> tag
-                wrapWordsInElement(bodyContent);
-
-                const pageElement = $(`<div class="page">${bodyContent.innerHTML}</div>`); // Create the jQuery element
-                $('#flipbook').turn('addPage', pageElement, pageNumber); // Add the page to the flipbook
-
-                // Add event listener for word pronunciation AFTER the page has been added
-                pageElement.find('.word').on('click', function () {
-                    pronounceWord($(this).text());
-                });
-            })
-            .catch(error => console.error(`Error: ${error.message}`));
-    }
-
-    // Function to wrap words in a given DOM element, avoiding HTML tags
-    function wrapWordsInElement(element) {
-        // Loop through child nodes
-        element.childNodes.forEach(node => {
-            if (node.nodeType === Node.TEXT_NODE) {
-                // If it's a text node, split it into words and wrap each word
-                const words = node.textContent.trim().split(/\s+/);
-                const fragment = document.createDocumentFragment();
-
-                words.forEach((word, index) => {
-                    if (word.length > 0) {
-                        const span = document.createElement('span');
-                        span.className = 'word';
-                        span.textContent = word;
-
-                        fragment.appendChild(span);
-
-                        // Add a space after the word if it's not the last word
-                        if (index < words.length - 1) {
-                            fragment.appendChild(document.createTextNode(' '));
-                        }
-                    }
-                });
-
-                // Replace the original text node with the new fragment
-                node.parentNode.replaceChild(fragment, node);
-            } else if (node.nodeType === Node.ELEMENT_NODE) {
-                // If it's an element node, call the function recursively
-                wrapWordsInElement(node);
+                const pageElement = $(`<div class="page">${bodyContent}</div>`); // Crear el elemento jQuery
+                $('#flipbook').turn('addPage', pageElement, i); // Agregar la página
+            } catch (error) {
+                console.error(`Error: ${error.message}`);
             }
-        });
+        }
     }
 
-    // Load pages dynamically
-    for (let i = 1; i <= 3; i++) {
-        loadPage(i); // Load pages 1 and 2, add more as needed
-    }
+    // Llamar a la función para cargar las páginas secuencialmente
+    loadPagesSequentially();
 
-    // Click control for navigating between pages
+    // Control de clics para navegar entre páginas
     $('#flipbook').on('click', function (e) {
         const flipbookOffset = $(this).offset();
         const clickPosition = e.pageX - flipbookOffset.left;
 
         if (clickPosition < $(this).width() / 2) {
-            $('#flipbook').turn('previous'); // Go to the previous page
+            $('#flipbook').turn('previous'); // Ir a la página anterior
         } else {
-            $('#flipbook').turn('next'); // Go to the next page
+            $('#flipbook').turn('next'); // Ir a la siguiente página
         }
     });
 
-    // Adjust display based on screen size
+    // Ajustar la visualización según el tamaño de pantalla
     function updateDisplay() {
         const width = $(window).width();
         if (width < 375) {
@@ -108,20 +65,7 @@ $(document).ready(function () {
         }
     }
 
-    // Execute on page load and when resizing the window
+    // Ejecutar al cargar la página y al redimensionar la ventana
     updateDisplay();
     $(window).resize(updateDisplay);
-
-    // Function to pronounce a word using the Web Speech API
-    function pronounceWord(word) {
-        const msg = new SpeechSynthesisUtterance();
-        msg.text = word;
-        msg.lang = 'es-ES'; // Set the language code for Spanish
-
-        // Optional: Set other properties of SpeechSynthesisUtterance
-        msg.rate = 1; // Speech rate
-        msg.pitch = 1; // Pitch
-
-        window.speechSynthesis.speak(msg);
-    }
 });
