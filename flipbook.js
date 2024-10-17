@@ -46,13 +46,12 @@ class Flipbook {
             }
         }
     }
-
     setupClickHandlers() {
         // Cambiar de página solo si se hace clic en la parte inferior de la página
-        this.flipbook.on('click touchstart', (e) => {
+        this.flipbook.on('click', (e) => {
             const flipbookOffset = this.flipbook.offset();
-            const clickPositionX = (e.pageX || e.originalEvent.touches[0].pageX) - flipbookOffset.left;
-            const clickPositionY = (e.pageY || e.originalEvent.touches[0].pageY) - flipbookOffset.top;
+            const clickPositionX = e.pageX - flipbookOffset.left;
+            const clickPositionY = e.pageY - flipbookOffset.top;
     
             const flipbookHeight = this.flipbook.height();
             const flipbookWidth = this.flipbook.width();
@@ -69,16 +68,18 @@ class Flipbook {
             }
         });
     
-        // Detectar la selección de una palabra y pronunciarla
-        document.addEventListener('selectionchange', () => {
+        // Pronunciar la palabra al hacer clic en párrafos y encabezados, y resaltarla
+        this.flipbook.on('click', 'p, h1, h2, h3, h4, h5, h6', (e) => {
+            // Prevenir que el clic en una palabra también cause el cambio de página
+            e.stopPropagation();
+    
+            // Obtener la palabra que se ha clickeado
             const selectedWord = window.getSelection().toString().trim();
             if (selectedWord) {
-                // Pronunciar la palabra seleccionada
-                this.speakWord(selectedWord);
+                this.highlightAndSpeakWord(selectedWord);
             }
         });
     }
-    
     
     highlightAndSpeakWord(word) {
         // Resaltar la palabra seleccionada temporalmente
@@ -109,6 +110,7 @@ class Flipbook {
             console.error('La API de síntesis de voz no está soportada en este navegador.');
         }
     }
+    
     
     updateDisplay() {
         const width = $(window).width();
