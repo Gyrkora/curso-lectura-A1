@@ -52,10 +52,10 @@ $(document).ready(function () {
         const width = $(window).width();
         if (width < 375) {
             $('#flipbook').turn('display', 'single');
-            $('#flipbook').turn('size', 300, 600);
+            $('#flipbook').turn('size', 300, 800);
         } else if (width < 400) {
             $('#flipbook').turn('display', 'single');
-            $('#flipbook').turn('size', 350, 600);
+            $('#flipbook').turn('size', 350, 800);
         } else if (width < 900) {
             $('#flipbook').turn('display', 'single');
             $('#flipbook').turn('size', 400, 600);
