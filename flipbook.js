@@ -57,7 +57,7 @@ class Flipbook {
             const flipbookWidth = this.flipbook.width();
     
             // Definir un área en la parte inferior para cambiar de página (por ejemplo, el 25% inferior)
-            const bottomThreshold = flipbookHeight * 0.75;
+            const bottomThreshold = flipbookHeight * 0.90;
     
             if (clickPositionY >= bottomThreshold) {
                 if (clickPositionX < flipbookWidth / 2) {
@@ -120,10 +120,18 @@ class Flipbook {
         } else if (width < 400) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 350, 800);
-        } else if (width < 900) {
+        } else if (width < 620) {
+            this.flipbook.turn('display', 'single');
+            this.flipbook.turn('size', 500, 650);
+            
+        } 
+        
+        else if (width < 900) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 400, 800);
-        } else {
+            
+        }
+        else {
             this.flipbook.turn('display', 'double');
             this.flipbook.turn('size', 800, 800);
         }
