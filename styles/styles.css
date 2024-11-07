@@ -100,3 +100,28 @@ body {
     width: 100%;
    
 }
+
+
+.button-pop-up-h5p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #bd1212;
+    border: none;
+    color: white;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    /* margin: 25px 2px; */
+    cursor: pointer;
+    border-radius: 10px;
+    max-width: 50%;
+}
+
+.button-pop-up-h5p:hover {
+    background-color: #0d7f37;
+    transition: all 0.3s ease;  
+}
