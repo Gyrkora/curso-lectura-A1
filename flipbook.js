@@ -122,13 +122,13 @@ class Flipbook {
             this.flipbook.turn('size', 350, 800);
         } else if (width < 620) {
             this.flipbook.turn('display', 'single');
-            this.flipbook.turn('size', 500, 650);
+            this.flipbook.turn('size', 400, 650);
             
         } 
         
         else if (width < 900) {
             this.flipbook.turn('display', 'single');
-            this.flipbook.turn('size', 400, 800);
+            this.flipbook.turn('size', 600, 650);
             
         }
         else {
