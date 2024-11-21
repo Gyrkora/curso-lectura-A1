@@ -2,6 +2,10 @@
     --light_green: #f8ffe5;
 }
 
+p {
+    font-size: 20px;
+}
+
 h1, h2 {
     color: #bd1212;
     text-align: center;
@@ -29,6 +33,10 @@ h1, h2 {
     align-items: center !important;
 }
 
+.italic {
+    font-style: italic;
+}
+
 body {
     margin: 0;
     min-height: 100vh; /* Allows the body to grow when content overflows */
@@ -42,11 +50,14 @@ body {
 }
 
 #flipbook {
+    
     width: 400px;
-    height: 600px;
+    /* height: 600px; */
+    height: 100vh; /* or a specific height, such as 600px */
+    overflow: hidden; /* Prevent scrolling */
     background-color: #e0e0e0;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    margin: 20px auto; /* Center the flipbook horizontally with margin */
+    margin: 30px auto; 
     position: relative;
     border-radius: 5px;
 }
@@ -57,12 +68,14 @@ body {
     display: flex;
 
     flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
     border: 1px solid #ddd;
     box-sizing: border-box;
     /* overflow: auto;  */
     overflow-y: auto;  /* Enable vertical scroll when content overflows */
     overflow-x: hidden;  /* Prevent horizontal scroll if it's not needed */
-    padding: 12px; 
+    padding: 56px; 
     background-color: #e0e0e0;
 }
 
@@ -70,6 +83,7 @@ body {
     margin: 0;
     padding: 10px;
     font-size: 24px;
+   
 }
 
 .page p, .page img {
@@ -77,10 +91,23 @@ body {
     padding: 0;
 }
 
+.page p {
+    margin: 0 !important;
+    text-align: justify;
+}
+
 @media (min-width: 900px) {
     #flipbook {
         max-width: 80%;
     }
+}
+
+.mirando-espejo-img {
+    height: 300px;
+    width: 410px;
+   display: flex;
+
+   
 }
 
 .picture_one {
@@ -106,19 +133,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    margin-top: 20px;
+    /* margin: 0 auto; */
+    margin-top: 60px;
     background-color: #bd1212;
     border: none !important;
     color: white;
-    padding: 10px 5px;
-    text-align: center;
+    padding: 30px 15px;
+    text-align: center !important;
     text-decoration: none;
-    font-size: 12px;
+    font-size: 15px;
     /* margin: 25px 2px; */
     cursor: pointer;
     border-radius: 20px;
-    max-width: 50%;
+    max-width: 60%;
     height: 40px;
 }
 
@@ -127,4 +154,57 @@ body {
     transition: all 0.5s ease;  
     transform : scale(1.3);
     /* transform:  */
+}
+
+@media (max-width: 1024px) {
+ 
+#flipbook {
+    
+    /* width: 800px !important; */
+    /* height: 600px; */
+    height: 100vh; /* or a specific height, such as 600px */
+    overflow: hidden; /* Prevent scrolling */
+    background-color: #e0e0e0;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin: 30px auto; 
+    position: relative;
+    border-radius: 5px;
+}
+
+/* .page {
+    padding: 20px; 
+} */
+
+   
+}
+
+
+@media (max-width: 720px) {
+    .button-pop-up-h5p {
+        padding: 50px 5px;
+        width: 200px;
+        max-width: 100%;
+      
+    }
+
+    .page {
+        padding: 40px; 
+    }
+
+   
+}
+
+@media (max-width: 480px) {
+    .button-pop-up-h5p {
+        padding: 50px 5px;
+        width: 200px;
+        max-width: 100%;
+      
+    }
+
+    .page {
+        padding: 40px; 
+    }
+
+   
 }

@@ -131,9 +131,15 @@ class Flipbook {
             this.flipbook.turn('size', 600, 650);
             
         }
+
+        // else if (width < 1024) {
+        //     this.flipbook.turn('display', 'double');
+        //     this.flipbook.turn('size', 800, 650);
+            
+        // }
         else {
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 800, 800);
+            this.flipbook.turn('size', 1050, 650);
         }
     }
 }
