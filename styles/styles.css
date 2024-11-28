@@ -3,10 +3,11 @@
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #bd1212;
     text-align: center;
 }
@@ -23,11 +24,16 @@ h1, h2 {
     font-weight: bold;
 }
 
+.bold-red-tow {
+    color: #bd1212;
+    font-weight: bold;
+}
+
 .p-right {
     padding: 5px;
 }
 
-.center-content{
+.center-content {
     display: flex;
     justify-content: center;
     align-items: center !important;
@@ -37,27 +43,44 @@ h1, h2 {
     font-style: italic;
 }
 
+
+
+.dialog-container strong {
+    color: #bd1212;
+
+}
+
+.dialog-container p {
+    text-align: left !important;
+}
+
+
+
+
 body {
     margin: 0;
-    min-height: 100vh; /* Allows the body to grow when content overflows */
+    min-height: 100vh;
+    /* Allows the body to grow when content overflows */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #8a0d0d;
 
-    
+
     /* display: block;  */
 }
 
 #flipbook {
-    
+
     width: 400px;
     /* height: 600px; */
-    height: 100vh; /* or a specific height, such as 600px */
-    overflow: hidden; /* Prevent scrolling */
+    height: 100vh;
+    /* or a specific height, such as 600px */
+    overflow: hidden;
+    /* Prevent scrolling */
     background-color: #e0e0e0;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    margin: 30px auto; 
+    margin: 30px auto;
     position: relative;
     border-radius: 5px;
 }
@@ -73,9 +96,11 @@ body {
     border: 1px solid #ddd;
     box-sizing: border-box;
     /* overflow: auto;  */
-    overflow-y: auto;  /* Enable vertical scroll when content overflows */
-    overflow-x: hidden;  /* Prevent horizontal scroll if it's not needed */
-    padding: 56px; 
+    overflow-y: auto;
+    /* Enable vertical scroll when content overflows */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll if it's not needed */
+    padding: 56px;
     background-color: #e0e0e0;
 }
 
@@ -83,10 +108,11 @@ body {
     margin: 0;
     padding: 10px;
     font-size: 24px;
-   
+
 }
 
-.page p, .page img {
+.page p,
+.page img {
     margin: 10px;
     padding: 0;
 }
@@ -94,6 +120,10 @@ body {
 .page p {
     margin: 0 !important;
     text-align: justify;
+}
+
+.page p {
+    margin-top: 10px !important;
 }
 
 @media (min-width: 900px) {
@@ -105,27 +135,27 @@ body {
 .mirando-espejo-img {
     height: 300px;
     width: 410px;
-   display: flex;
+    display: flex;
 
-   
+
 }
 
 .picture_one {
     background-image: url('https://amazonfrontlines.org/wp-content/uploads/2022/04/8-reasons-waorani-victory-21-es-1536x1024.jpeg');
     background-size: cover;
     background-position: center;
-    height: 800px ;
+    height: 800px;
     width: 100%;
-   
+
 }
 
 .picture_two {
     background-image: url('https://amazonfrontlines.org/wp-content/uploads/2023/10/Nemonte-Nenquimo-and-MItch-Anderson-Book-1536x1536.jpeg');
     background-size: cover;
     background-position: center;
-    height: 800px ;
+    height: 800px;
     width: 100%;
-   
+
 }
 
 
@@ -151,31 +181,33 @@ body {
 
 .button-pop-up-h5p:hover {
     background-color: #0d7f37;
-    transition: all 0.5s ease;  
-    transform : scale(1.3);
+    transition: all 0.5s ease;
+    transform: scale(1.3);
     /* transform:  */
 }
 
 @media (max-width: 1024px) {
- 
-#flipbook {
-    
-    /* width: 800px !important; */
-    /* height: 600px; */
-    height: 100vh; /* or a specific height, such as 600px */
-    overflow: hidden; /* Prevent scrolling */
-    background-color: #e0e0e0;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    margin: 30px auto; 
-    position: relative;
-    border-radius: 5px;
-}
 
-/* .page {
+    #flipbook {
+
+        /* width: 800px !important; */
+        /* height: 600px; */
+        height: 100vh;
+        /* or a specific height, such as 600px */
+        overflow: hidden;
+        /* Prevent scrolling */
+        background-color: #e0e0e0;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        margin: 30px auto;
+        position: relative;
+        border-radius: 5px;
+    }
+
+    /* .page {
     padding: 20px; 
 } */
 
-   
+
 }
 
 
@@ -184,14 +216,14 @@ body {
         padding: 50px 5px;
         width: 200px;
         max-width: 100%;
-      
+
     }
 
     .page {
-        padding: 40px; 
+        padding: 40px;
     }
 
-   
+
 }
 
 @media (max-width: 480px) {
@@ -199,12 +231,12 @@ body {
         padding: 50px 5px;
         width: 200px;
         max-width: 100%;
-      
+
     }
 
     .page {
-        padding: 40px; 
+        padding: 40px;
     }
 
-   
+
 }
