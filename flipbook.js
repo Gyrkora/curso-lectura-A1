@@ -1,7 +1,7 @@
 class Flipbook {
     constructor(flipbookSelector) {
         this.flipbook = $(flipbookSelector);
-        this.pagesCount = 25; // Default number of pages; can be modified dynamically
+        this.pagesCount = 14; // Default number of pages; can be modified dynamically
     }
 
     initialize() {
@@ -52,13 +52,13 @@ class Flipbook {
             const flipbookOffset = this.flipbook.offset();
             const clickPositionX = e.pageX - flipbookOffset.left;
             const clickPositionY = e.pageY - flipbookOffset.top;
-    
+
             const flipbookHeight = this.flipbook.height();
             const flipbookWidth = this.flipbook.width();
-    
+
             // Definir un área en la parte inferior para cambiar de página (por ejemplo, el 25% inferior)
             const bottomThreshold = flipbookHeight * 0.90;
-    
+
             if (clickPositionY >= bottomThreshold) {
                 if (clickPositionX < flipbookWidth / 2) {
                     this.flipbook.turn('previous'); // Ir a la página anterior
@@ -67,12 +67,12 @@ class Flipbook {
                 }
             }
         });
-    
+
         // Pronunciar la palabra al hacer clic en párrafos y encabezados, y resaltarla
         this.flipbook.on('click', 'p, h1, h2, h3, h4, h5, h6', (e) => {
             // Prevenir que el clic en una palabra también cause el cambio de página
             e.stopPropagation();
-    
+
             // Obtener la palabra que se ha clickeado
             const selectedWord = window.getSelection().toString().trim();
             if (selectedWord) {
@@ -80,27 +80,27 @@ class Flipbook {
             }
         });
     }
-    
+
     highlightAndSpeakWord(word) {
         // Resaltar la palabra seleccionada temporalmente
         const selection = window.getSelection();
         const range = selection.getRangeAt(0);
-    
+
         const span = document.createElement('span');
         span.style.backgroundColor = 'yellow'; // Color de resaltado temporal
         span.style.transition = 'background-color 0.5s ease'; // Para un desvanecimiento suave
         span.appendChild(range.extractContents());
         range.insertNode(span);
-    
+
         // Pronunciar la palabra
         this.speakWord(word);
-    
+
         // Restaurar el color original después de un pequeño retraso
         setTimeout(() => {
             span.style.backgroundColor = 'yellow';
         }, 1000); // Resaltar durante 1 segundo
     }
-    
+
     speakWord(word) {
         if ('speechSynthesis' in window) {
             const utterance = new SpeechSynthesisUtterance(word);
@@ -110,8 +110,8 @@ class Flipbook {
             console.error('La API de síntesis de voz no está soportada en este navegador.');
         }
     }
-    
-    
+
+
     updateDisplay() {
         const width = $(window).width();
         if (width < 375) {
@@ -123,23 +123,31 @@ class Flipbook {
         } else if (width < 620) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 400, 650);
-            
-        } 
-        
+
+        }
+
         else if (width < 900) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 600, 650);
-            
+
         }
 
         // else if (width < 1024) {
-        //     this.flipbook.turn('display', 'double');
-        //     this.flipbook.turn('size', 800, 650);
-            
+        //     this.flipbook.turn('display', 'single');
+        //     this.flipbook.turn('size', 1000, 600);
+
         // }
+
+        else if (width < 1250) {
+            this.flipbook.turn('display', 'single');
+            this.flipbook.turn('size', 1000, 600);
+
+        }
+
+
         else {
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 1050, 650);
+            this.flipbook.turn('size', 1200, 650);
         }
     }
 }
