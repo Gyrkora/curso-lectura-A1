@@ -186,6 +186,24 @@ body {
     /* transform:  */
 }
 
+
+.page-number {
+    position: absolute;
+    bottom: 15px;
+    /* Positions the element at the bottom of the container */
+    left: 0;
+    /* Optional: align it to the left edge */
+    width: 100%;
+    /* Optional: make it span the full width of the container */
+    text-align: center;
+    /* Optional: center-align the text inside */
+    /* background: #333; */
+
+}
+
+
+
+
 @media (max-width: 1024px) {
 
     #flipbook {
@@ -203,9 +221,6 @@ body {
         border-radius: 5px;
     }
 
-    /* .page {
-    padding: 20px; 
-} */
 
 
 }
