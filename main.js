@@ -106,7 +106,7 @@
 
 
 $(document).ready(function () {
-    const myFlipbook = new Flipbook('#flipbook');
+    const myFlipbook = new Flipbook('#flipbook', '#progress-bar', '#page-counter');
     const fullscreenBtn = document.getElementById('fullscreen-btn');
     const fullscreenContainer = document.getElementById('fullscreen-container');
     const iframeElement = document.getElementById('myIframe');
