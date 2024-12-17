@@ -4,7 +4,7 @@ class Flipbook {
         this.flipbook = $(flipbookSelector);
         this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
         this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
-        this.pagesCount = 14; // Default number of pages; can be modified dynamically
+        this.pagesCount = 16; // Default number of pages; can be modified dynamically
     }
 
     initialize() {
@@ -207,7 +207,3 @@ class Flipbook {
 
 }
 
-$(document).ready(() => {
-    const flipbook = new Flipbook('#flipbook', '#progress-bar', '#page-counter');
-    flipbook.initialize();
-});
