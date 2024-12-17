@@ -56,7 +56,6 @@ h2 {
 
 
 
-
 body {
     margin: 0;
     /* min-height: 100vh; */
@@ -64,28 +63,90 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #8a0d0d; */
+    flex-direction: column;
+
     background-color: black;
 
 
     /* display: block;  */
 }
 
-#flipbook {
+/* body:fullscreen,
+body:-webkit-full-screen,
+body:-moz-full-screen,
+body:-ms-fullscreen {
 
-    /* width: 400px; */
-    /* height: 600px; */
-    /* height: 100vh; */
-    /* or a specific height, such as 600px */
-    overflow: hidden;
-    /* Prevent scrolling */
-    background-color: #F5EFE9;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    margin: 30px auto;
-    position: relative;
-    border-radius: 5px;
+    height: 1800px;
+} */
+
+
+
+
+#flipbook:fullscreen,
+#flipbook:-webkit-full-screen,
+#flipbook:-moz-full-screen,
+#flipbook:-ms-fullscreen {
+    width: 100vw;
+    /* Use viewport width */
+    height: 100vh;
+    /* Use viewport height */
+    margin: 0;
+    padding: 0;
 }
 
+
+#fullscreen-container:fullscreen,
+#fullscreen-container:-webkit-full-screen,
+#fullscreen-container:-moz-full-screen,
+#fullscreen-container:-ms-fullscreen {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent scrollbars */
+    background-color: black;
+}
+
+#fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    /* Layout children vertically */
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /* Prevent scrolling */
+    background-color: black;
+}
+
+
+#flipbook {
+
+
+    overflow: hidden;
+    background-color: #F5EFE9;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    margin: 0px auto;
+    border-radius: 5px;
+    flex: 1;
+    background-color: #F5EFE9;
+    height: 100%;
+    /* This allows the flipbook to take the full container height */
+    width: 100%;
+    /* Ensures the flipbook stretches to fill available space */
+    position: relative;
+
+
+
+
+    /* Ensures it stretches horizontally */
+
+
+}
 
 
 .page {
@@ -127,7 +188,7 @@ body {
 }
 
 .page p {
-    margin-top: 10px !important;
+    margin-top: 0px !important;
 }
 
 
@@ -202,10 +263,61 @@ body {
 }
 
 
+
+#progress-container {
+
+    width: 95%;
+    background: #eee;
+    height: 15px;
+    margin: 0;
+    margin: 0 auto;
+
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #76c7c0;
+    transition: width 0.3s;
+
+
+
+}
+
+
+#fullscreen-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    /* Position the left side of the button at 50% of the viewport */
+    transform: translateX(-50%);
+    /* Move it back 50% of its width to center it */
+    z-index: 9999;
+    padding: 10px 15px;
+    background-color: #76c7c0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#fullscreen-btn:hover {
+    background-color: #2b2e2e;
+}
+
+
+
+
+
+
+
+
+
 @media (min-width: 900px) {
     #flipbook {
         max-width: 95%;
-        margin-top: 50px;
+        /* margin-top: 10px; */
         height: 630px !important;
     }
 
@@ -225,7 +337,7 @@ body {
         /* Prevent scrolling */
         background-color: #e0e0e0;
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-        margin: 30px auto;
+        margin: 0 auto;
         position: relative;
         border-radius: 5px;
     }

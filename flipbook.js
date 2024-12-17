@@ -1,6 +1,9 @@
 class Flipbook {
-    constructor(flipbookSelector) {
+
+    constructor(flipbookSelector, progressBarSelector, pageCounterSelector) {
         this.flipbook = $(flipbookSelector);
+        this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
+        this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
         this.pagesCount = 14; // Default number of pages; can be modified dynamically
     }
 
@@ -25,6 +28,10 @@ class Flipbook {
         // Set up the initial display and handle resize
         this.updateDisplay();
         $(window).resize(() => this.updateDisplay());
+
+        // Set up progress updates
+        this.setupProgressTracking();
+
     }
 
     async loadPagesSequentially() {
@@ -112,9 +119,49 @@ class Flipbook {
     }
 
 
+    // updateDisplay() {
+    //     const width = $(window).width();
+    //     if (width < 375) {
+    //         this.flipbook.turn('display', 'single');
+    //         this.flipbook.turn('size', 300, 800);
+    //     } else if (width < 400) {
+    //         this.flipbook.turn('display', 'single');
+    //         this.flipbook.turn('size', 350, 800);
+    //     } else if (width < 620) {
+    //         this.flipbook.turn('display', 'single');
+    //         this.flipbook.turn('size', 400, 650);
+
+    //     }
+
+    //     else if (width < 900) {
+    //         this.flipbook.turn('display', 'single');
+    //         this.flipbook.turn('size', 600, 650);
+
+    //     }
+
+
+    //     else if (width < 1200) {
+    //         this.flipbook.turn('display', 'double');
+    //         this.flipbook.turn('size', 2020, 630);
+
+    //     }
+
+
+    //     else {
+    //         this.flipbook.turn('display', 'double');
+    //         this.flipbook.turn('size', 1500, 650);
+    //     }
+    // }
+
+
     updateDisplay() {
         const width = $(window).width();
-        if (width < 375) {
+        const height = $(window).height();
+
+        if (document.fullscreenElement) {
+            // En modo fullscreen, ajusta al 100% del tamaño de la pantalla
+            this.flipbook.turn('size', width, height);
+        } else if (width < 375) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 300, 800);
         } else if (width < 400) {
@@ -123,33 +170,44 @@ class Flipbook {
         } else if (width < 620) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 400, 650);
-
-        }
-
-        else if (width < 900) {
+        } else if (width < 900) {
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 600, 650);
-
-        }
-
-
-
-        // else if (width < 1250) {
-        //     this.flipbook.turn('display', 'single');
-        //     this.flipbook.turn('size', 1000, 600);
-
-        // }
-
-        else if (width < 1200) {
+        } else if (width < 1200) {
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 2020, 630);
-
+            this.flipbook.turn('size', 1000, 630); //630
         }
-
-
         else {
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 1500, 650);
+            this.flipbook.turn('size', 1200, 650);
         }
     }
+
+
+    setupProgressTracking() {
+        this.flipbook.on('turning', (event, currentPage) => {
+            this.updateProgress(currentPage);
+        });
+
+        this.flipbook.on('turned', (event, currentPage) => {
+            this.updateProgress(currentPage);
+        });
+    }
+
+    updateProgress(currentPage) {
+        const progress = (currentPage / this.pagesCount) * 100;
+        this.progressBar.css('width', `${progress}%`);
+        this.pageCounter.text(`Página ${currentPage} / ${this.pagesCount}`);
+    }
+
+
+
+
+
+
 }
+
+$(document).ready(() => {
+    const flipbook = new Flipbook('#flipbook', '#progress-bar', '#page-counter');
+    flipbook.initialize();
+});

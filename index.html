@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Flipbook with Turn.js</title>
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css" />
 
     <!-- jQuery and Turn.js from CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+  </head>
+  <body>
+    <!-- <div id="flipbook"></div> -->
 
-</head>
-<body >
-        <div id="flipbook" >
-            <p>.</p>
+    <div id="fullscreen-container">
+      <div id="flipbook">
+        <p>.</p>
+      </div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
 
-  
-            
-        </div>
-   
+      <button id="fullscreen-btn">Pantalla Completa</button>
+    </div>
 
-        <script src="flipbook.js"></script>
+    <!-- <div id="page-counter">Página 0 / 14</div> -->
+
+    <script src="flipbook.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
