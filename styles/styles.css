@@ -115,7 +115,7 @@ body:-ms-fullscreen {
     flex-direction: column;
     /* Layout children vertically */
     width: 100vw;
-    height: 100vh;
+    height: 650px;
     /* height: 100vh; */
     margin: 0;
     padding: 0;
@@ -450,9 +450,9 @@ body:-ms-fullscreen {
         padding: 40px;
     }
 
-    #fullscreen-btn {
+    /* #fullscreen-btn {
         display: none;
-    }
+    } */
 
 
 }
