@@ -132,22 +132,24 @@ class Flipbook {
 
         }
 
-        // else if (width < 1024) {
+
+
+        // else if (width < 1250) {
         //     this.flipbook.turn('display', 'single');
         //     this.flipbook.turn('size', 1000, 600);
 
         // }
 
-        else if (width < 1250) {
-            this.flipbook.turn('display', 'single');
-            this.flipbook.turn('size', 1000, 600);
+        else if (width < 1200) {
+            this.flipbook.turn('display', 'double');
+            this.flipbook.turn('size', 2020, 630);
 
         }
 
 
         else {
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 1200, 650);
+            this.flipbook.turn('size', 1500, 650);
         }
     }
 }
