@@ -165,4 +165,6 @@ $(document).ready(function () {
 
     // Initialize the flipbook
     myFlipbook.initialize();
+    console.log(jQuery.fn.jquery);
+
 });
