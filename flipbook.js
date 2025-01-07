@@ -4,7 +4,7 @@ class Flipbook {
         this.flipbook = $(flipbookSelector);
         this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
         this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
-        this.pagesCount = 16; // Default number of pages; can be modified dynamically
+        this.pagesCount = 17; // Default number of pages; can be modified dynamically
     }
 
     initialize() {
@@ -119,41 +119,6 @@ class Flipbook {
     }
 
 
-    // updateDisplay() {
-    //     const width = $(window).width();
-    //     if (width < 375) {
-    //         this.flipbook.turn('display', 'single');
-    //         this.flipbook.turn('size', 300, 800);
-    //     } else if (width < 400) {
-    //         this.flipbook.turn('display', 'single');
-    //         this.flipbook.turn('size', 350, 800);
-    //     } else if (width < 620) {
-    //         this.flipbook.turn('display', 'single');
-    //         this.flipbook.turn('size', 400, 650);
-
-    //     }
-
-    //     else if (width < 900) {
-    //         this.flipbook.turn('display', 'single');
-    //         this.flipbook.turn('size', 600, 650);
-
-    //     }
-
-
-    //     else if (width < 1200) {
-    //         this.flipbook.turn('display', 'double');
-    //         this.flipbook.turn('size', 2020, 630);
-
-    //     }
-
-
-    //     else {
-    //         this.flipbook.turn('display', 'double');
-    //         this.flipbook.turn('size', 1500, 650);
-    //     }
-    // }
-
-
     updateDisplay() {
         const width = $(window).width();
         const height = $(window).height();
@@ -187,18 +152,46 @@ class Flipbook {
     setupProgressTracking() {
         this.flipbook.on('turning', (event, currentPage) => {
             this.updateProgress(currentPage);
+
+
+
         });
 
         this.flipbook.on('turned', (event, currentPage) => {
             this.updateProgress(currentPage);
+
         });
+
+
     }
 
     updateProgress(currentPage) {
-        const progress = (currentPage / this.pagesCount) * 100;
+        const isDouble = this.flipbook.turn('display') === 'double';
+        let totalTurns = this.pagesCount; // Total pages count
+
+        // In double mode, reduce the totalTurns by 1 because the last page is shared
+        if (isDouble) {
+            totalTurns = Math.ceil(this.pagesCount / 2.3);
+        }
+
+        let progress;
+
+        // Adjust progress calculation based on display mode
+        if (isDouble) {
+            progress = ((Math.ceil(currentPage / 2)) / totalTurns) * 100; // Count pages in pairs
+        } else {
+            progress = ((currentPage - 1) / (this.pagesCount - 1)) * 100;
+        }
+
+        console.log(`Total Pages: ${this.pagesCount}`);
+        console.log(`Current Page: ${currentPage}`);
+        console.log(`Calculated Progress: ${progress}%`);
+
+        // Update progress bar and page counter
         this.progressBar.css('width', `${progress}%`);
         this.pageCounter.text(`Página ${currentPage} / ${this.pagesCount}`);
     }
+
 
 
 
