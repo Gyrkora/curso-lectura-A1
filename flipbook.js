@@ -1,13 +1,16 @@
-class Flipbook {
+export class Flipbook {
 
     constructor(flipbookSelector, progressBarSelector, pageCounterSelector) {
         this.flipbook = $(flipbookSelector);
         this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
         this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
-        this.pagesCount = 17; // Default number of pages; can be modified dynamically
+        this.pagesCount = 0; // Default pages count, will be set during initialization
+
     }
 
-    initialize() {
+    initialize(basePath, pagesCount) {
+        this.pagesCount = pagesCount; // Set the pages count dynamically
+
         this.flipbook.turn({
             width: 400,
             height: 600,
@@ -20,7 +23,7 @@ class Flipbook {
         });
 
         // Load pages after initializing
-        this.loadPagesSequentially();
+        this.loadPagesSequentially(basePath, this.pagesCount);
 
         // Set up click handlers for navigation
         this.setupClickHandlers();
@@ -34,25 +37,32 @@ class Flipbook {
 
     }
 
-    async loadPagesSequentially() {
-        for (let i = 1; i <= this.pagesCount; i++) {
+    async loadPagesSequentially(basePath, pagesCount) {
+        for (let i = 1; i <= pagesCount; i++) {
             try {
-                const response = await fetch(`pages/page${i}.html`);
+                const path = `${basePath}/page${i}.html`; // Add `pages/` in the basePath
+                const response = await fetch(path);
+
+
+
                 if (!response.ok) {
-                    throw new Error(`Error al cargar la página ${i}`);
+                    throw new Error(`Error loading page ${i}: ${response.statusText}`);
                 }
+
                 const htmlContent = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlContent, 'text/html');
+
                 const bodyContent = doc.body.innerHTML;
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`);
                 this.flipbook.turn('addPage', pageElement, i);
             } catch (error) {
-                console.error(`Error: ${error.message}`);
+                console.error(`Error loading page ${i}:`, error);
             }
         }
     }
+
     setupClickHandlers() {
         // Cambiar de página solo si se hace clic en la parte inferior de la página
         this.flipbook.on('click', (e) => {
@@ -166,37 +176,11 @@ class Flipbook {
     }
 
     updateProgress(currentPage) {
-        const isDouble = this.flipbook.turn('display') === 'double';
-        let totalTurns = this.pagesCount; // Total pages count
-
-        // In double mode, reduce the totalTurns by 1 because the last page is shared
-        if (isDouble) {
-            totalTurns = Math.ceil(this.pagesCount / 2.3);
-        }
-
-        let progress;
-
-        // Adjust progress calculation based on display mode
-        if (isDouble) {
-            progress = ((Math.ceil(currentPage / 2)) / totalTurns) * 100; // Count pages in pairs
-        } else {
-            progress = ((currentPage - 1) / (this.pagesCount - 1)) * 100;
-        }
-
-        console.log(`Total Pages: ${this.pagesCount}`);
-        console.log(`Current Page: ${currentPage}`);
-        console.log(`Calculated Progress: ${progress}%`);
-
-        // Update progress bar and page counter
+        const progress = (currentPage / this.pagesCount) * 100;
         this.progressBar.css('width', `${progress}%`);
         this.pageCounter.text(`Página ${currentPage} / ${this.pagesCount}`);
     }
 
 
 
-
-
-
-
 }
-
