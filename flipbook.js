@@ -25,6 +25,9 @@ export class Flipbook {
         // Load pages after initializing
         this.loadPagesSequentially(basePath, this.pagesCount);
 
+        this.setupArrowKeyNavigation();
+
+
         // Set up click handlers for navigation
         this.setupClickHandlers();
 
@@ -61,6 +64,18 @@ export class Flipbook {
                 console.error(`Error loading page ${i}:`, error);
             }
         }
+    }
+
+    setupArrowKeyNavigation() {
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft') {
+                // Flip to the previous page
+                this.flipbook.turn('previous');
+            } else if (event.key === 'ArrowRight') {
+                // Flip to the next page
+                this.flipbook.turn('next');
+            }
+        });
     }
 
     setupClickHandlers() {
@@ -133,30 +148,70 @@ export class Flipbook {
         const width = $(window).width();
         const height = $(window).height();
 
+        const pages = document.querySelectorAll('.page'); // Select all pages
+
+
         if (document.fullscreenElement) {
-            // En modo fullscreen, ajusta al 100% del tamaño de la pantalla
-            this.flipbook.turn('size', width, height);
+
+            if (width < 1200) {
+                // Extra large screens
+                this.flipbook.turn('display', 'single');
+                this.flipbook.turn('size', 600, 630)
+
+            }
+
+            // pages.forEach(page => {
+            //     page.style.padding = '20px'; // Add extra padding
+            //     page.style.lineHeight = 2;
+            //     // page.style.margin = '0'; // Remove margins
+            //     // page.style.backgroundColor = '#000'; // Dark background for fullscreen
+            //     // page.style.color = '#fff'; // Light text color
+            // })
+
+            this.flipbook.turn('size', 1200, height);
+
+
         } else if (width < 375) {
+            // Extra small screens
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 300, 800);
         } else if (width < 400) {
+            // Small screens
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 350, 800);
         } else if (width < 620) {
+            // Medium screens
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 400, 650);
         } else if (width < 900) {
+            // Large screens
             this.flipbook.turn('display', 'single');
             this.flipbook.turn('size', 600, 650);
         } else if (width < 1200) {
+            // Extra large screens
             this.flipbook.turn('display', 'double');
-            this.flipbook.turn('size', 1000, 630); //630
-        }
-        else {
+            this.flipbook.turn('size', 1000, 630);
+
+        } else {
+            // Default for very large screens
             this.flipbook.turn('display', 'double');
             this.flipbook.turn('size', 1200, 650);
+
+            pages.forEach(page => {
+                page.style.padding = ''; // Reset to default padding
+                page.style.margin = ''; // Reset to default margins
+                page.style.backgroundColor = ''; // Reset background color
+                page.style.color = ''; // Reset text color
+                page.style.transition = ''; // Remove transition
+            });
+
         }
+
+
+        // Ensure the Flipbook layout is updated
+        this.flipbook.turn('resize');
     }
+
 
 
     setupProgressTracking() {

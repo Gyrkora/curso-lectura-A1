@@ -121,12 +121,6 @@ jQuery.event.special.touchmove = {
 };
 
 
-
-
-/**
- * Detects if the user is on a mobile device.
- * @returns {boolean} True if a mobile device is detected, false otherwise.
- */
 export function isMobileDevice() {
     return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
 }
@@ -139,33 +133,72 @@ export function showMobileModal() {
     modal.style.display = 'flex';
 }
 
-/**
- * Toggles fullscreen mode for the container or iframe.
- */
-export function toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement) {
+
+
+
+
+export function toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement, flipbookInstance) {
     if (isMobileDevice()) {
+        // Show the mobile modal if the user is on a mobile device
         showMobileModal();
-        return;
+        return; // Prevent further fullscreen logic
     }
+
+    const target = iframeElement || fullscreenContainer;
+
 
     if (!document.fullscreenElement) {
-        const target = iframeElement || fullscreenContainer;
 
+        // Enter fullscreen
         if (target.requestFullscreen) {
             target.requestFullscreen();
-        } else if (target.webkitRequestFullscreen) { /* Safari */
-            target.webkitRequestFullscreen();
-        } else if (target.msRequestFullscreen) { /* IE11 */
-            target.msRequestFullscreen();
+        } else if (target.webkitRequestFullscreen) {
+            target.webkitRequestFullscreen(); // Safari
+        } else if (target.msRequestFullscreen) {
+            target.msRequestFullscreen(); // IE11
         }
 
+        target.classList.add('is-fullscreen');
         fullscreenBtn.textContent = "Salir de Pantalla Completa";
     } else {
+        // Exit fullscreen
         document.exitFullscreen()
-            .then(() => fullscreenBtn.textContent = "Pantalla Completa")
-            .catch(err => console.error("Error al salir de pantalla completa:", err));
+            .then(() => {
+                fullscreenBtn.textContent = "Pantalla Completa";
+                target.classList.remove('is-fullscreen'); // Remove the fullscreen class
+            })
+
+            .catch((err) => console.error("Error al salir de pantalla completa:", err));
+
+
     }
+
+    // Add event listener to handle ESC or any fullscreen exit
+    document.addEventListener('fullscreenchange', () => {
+        if (!document.fullscreenElement) {
+            fullscreenBtn.textContent = "Pantalla Completa";
+            target.classList.remove('is-fullscreen');
+
+
+
+
+        } else {
+            fullscreenBtn.textContent = "Salir de Pantalla Completa";
+
+        }
+    });
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Sets up modal close logic.

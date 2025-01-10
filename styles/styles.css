@@ -71,14 +71,20 @@ body {
     /* display: block;  */
 }
 
-/* body:fullscreen,
-body:-webkit-full-screen,
-body:-moz-full-screen,
-body:-ms-fullscreen {
-
-    height: 1800px;
-} */
-
+#fullscreen-container:fullscreen,
+#fullscreen-container:-webkit-full-screen,
+#fullscreen-container:-moz-full-screen,
+#fullscreen-container:-ms-fullscreen {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0px;
+    overflow: hidden;
+    background-color: red;
+    /* Prevent scrollbars */
+}
 
 
 
@@ -91,24 +97,48 @@ body:-ms-fullscreen {
     height: 100vh;
     /* Use viewport height */
     margin: 0;
-    padding: 0;
+    padding: 100px;
+    background-color: red;
 }
 
 
-#fullscreen-container:fullscreen,
-#fullscreen-container:-webkit-full-screen,
-#fullscreen-container:-moz-full-screen,
-#fullscreen-container:-ms-fullscreen {
+.is-fullscreen #flipbook {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
     margin: 0;
+    padding: 0px;
+    overflow: hidden;
+
+    /* background-color: red; */
+
+}
+
+.is-fullscreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Layout children vertically */
+    width: 100vw;
+    height: 650px;
+    /* height: 100vh; */
+    margin: 0;
     padding: 0;
     overflow: hidden;
-    /* Prevent scrollbars */
+    /* Prevent scrolling */
     background-color: black;
+    /* color: white; */
+    line-height: 2;
+
+
 }
+
+.is-fullscreen p {
+    font-size: 20px;
+}
+
 
 #fullscreen-container {
     display: flex;
@@ -157,6 +187,10 @@ body:-ms-fullscreen {
 
 }
 
+/* .page:fullscreen {
+    font-size: 120px;
+} */
+
 
 .page {
     width: 100%;
@@ -177,6 +211,9 @@ body:-ms-fullscreen {
     padding: 68px;
     background-color: #F5EFE9;
 }
+
+
+
 
 .page h2 {
     margin: 0;
@@ -489,6 +526,7 @@ a:hover {
         /* Adjust title size for smaller screens */
     }
 }
+
 
 
 

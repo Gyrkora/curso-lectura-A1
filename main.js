@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         const iframeElement = document.getElementById('myIframe');
         fullscreenBtn.addEventListener('click', () => toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement));
 
+
         // Set up modal close functionality
         const modalCloseButton = document.getElementById('close-modal');
         setupModalClose(modalCloseButton);
@@ -45,4 +46,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error("Error initializing Flipbook:", error);
     }
 });
+
+
 
