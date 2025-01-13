@@ -61,8 +61,7 @@ h2 {
 
 body {
     margin: 0;
-    /* min-height: 100vh; */
-    /* Allows the body to grow when content overflows */
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +70,6 @@ body {
     background-color: black;
 
 
-    /* display: block;  */
 }
 
 
@@ -397,10 +395,6 @@ body.dark-mode button:hover {
 
 
 
-
-
-
-
 /* Modal container - hidden by default */
 
 /* General Modal Styling */
@@ -488,7 +482,7 @@ a {
 }
 
 a:hover {
-    color: #bd1212;
+    color: var;
 }
 
 
@@ -518,26 +512,16 @@ a:hover {
     background-color: #aaa;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     .modal-content {
         width: 95%;
-        /* Adjust modal width for smaller screens */
         max-height: 80vh;
-        /* Reduce height for mobile devices */
     }
 
     .modal-content h2 {
         font-size: 1.2rem;
-        /* Adjust title size for smaller screens */
     }
 }
-
-
-
-
-
-
 
 
 

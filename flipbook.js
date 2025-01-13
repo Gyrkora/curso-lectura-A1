@@ -5,7 +5,7 @@ export class Flipbook {
         this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
         this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
         this.pagesCount = 0; // Default pages count, will be set during initialization
-
+        this.currentFontSize = 16; // Default font size
     }
 
     initialize(basePath, pagesCount) {
@@ -26,17 +26,13 @@ export class Flipbook {
         this.loadPagesSequentially(basePath, this.pagesCount);
 
         this.setupArrowKeyNavigation();
-
-
-        // Set up click handlers for navigation
         this.setupClickHandlers();
-
-        // Set up the initial display and handle resize
         this.updateDisplay();
         $(window).resize(() => this.updateDisplay());
-
-        // Set up progress updates
         this.setupProgressTracking();
+
+        // Ensure font size is applied after flipping
+        this.flipbook.on('turned', () => this.applyFontSizeToAllPages());
 
     }
 
@@ -45,8 +41,6 @@ export class Flipbook {
             try {
                 const path = `${basePath}/page${i}.html`; // Add `pages/` in the basePath
                 const response = await fetch(path);
-
-
 
                 if (!response.ok) {
                     throw new Error(`Error loading page ${i}: ${response.statusText}`);
@@ -59,12 +53,41 @@ export class Flipbook {
                 const bodyContent = doc.body.innerHTML;
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`);
+                this.applyFontSize(pageElement); // Apply font size to new pages
+
                 this.flipbook.turn('addPage', pageElement, i);
             } catch (error) {
                 console.error(`Error loading page ${i}:`, error);
             }
         }
     }
+
+
+    applyFontSize(pageElement) {
+        const paragraphs = pageElement.find('p'); // Target <p> elements
+        paragraphs.each((_, paragraph) => {
+            $(paragraph).css({
+                fontSize: `${this.currentFontSize}px`,
+                lineHeight: `${this.currentFontSize * 1.5}px`,
+            });
+        });
+    }
+
+    applyFontSizeToAllPages() {
+        // Apply font size to all current pages
+        this.flipbook.find('.page').each((_, page) => {
+            this.applyFontSize($(page));
+        });
+    }
+
+    adjustFontSize(increase = true) {
+        this.currentFontSize += increase ? 2 : -2;
+        this.currentFontSize = Math.max(12, Math.min(this.currentFontSize, 32)); // Clamp font size
+        this.applyFontSizeToAllPages(); // Ensure font size is applied to all current pages
+    }
+
+
+
 
     setupArrowKeyNavigation() {
         document.addEventListener('keydown', (event) => {
@@ -150,17 +173,12 @@ export class Flipbook {
 
         const pages = document.querySelectorAll('.page'); // Select all pages
 
-
         if (document.fullscreenElement) {
 
             if (width < 1200) {
+                // this.flipbook.turn('size', 400, 630)
                 this.flipbook.turn('display', 'single');
-                this.flipbook.turn('size', 600, 630)
-
-            }
-
-
-            this.flipbook.turn('size', 1200, height);
+            } else this.flipbook.turn('size', 1200, height);
 
 
         } else if (width < 375) {

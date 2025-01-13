@@ -41,6 +41,14 @@ document.addEventListener("DOMContentLoaded", async function () {
         const toggleButton = document.getElementById("toggle-accessibility-btn");
         const controls = document.getElementById("accessibility-controls");
 
+        document.getElementById('increase-font-btn').addEventListener('click', () => {
+            flipbook.adjustFontSize(true);
+        });
+
+        document.getElementById('decrease-font-btn').addEventListener('click', () => {
+            flipbook.adjustFontSize(false);
+        });
+
 
         controls.classList.add("hidden");
         toggleButton.addEventListener("click", () => {
@@ -49,22 +57,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
 
-        // toggleButton.addEventListener("click", () => {
-        //     controls.classList.toggle("hidden"); // Toggle the "hidden" class
-
-        //     if (isMobile()) {
-        //         if (controls.classList.contains("hidden")) {
-        //             // When controls are hidden
-        //             accesibilityToggle.style.bottom = "20px"; // Default position
-        //         } else {
-        //             // When controls are visible
-        //             accesibilityToggle.style.bottom = "100px"; // Adjust for controls
-        //         }
-        //     } else {
-        //         // Reset position on desktop
-        //         accesibilityToggle.style.bottom = "20px";
-        //     }
-        // });
 
 
         fullscreenBtn.addEventListener('click', () => toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement));
@@ -76,13 +68,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
 
-        document.getElementById('increase-font-btn').addEventListener('click', () => {
-            adjustFontSize(true);
-        });
 
-        document.getElementById('decrease-font-btn').addEventListener('click', () => {
-            adjustFontSize(false);
-        });
+
 
         document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
 

@@ -8,10 +8,8 @@ export function adjustFontSize(increase = true) {
     const pages = document.querySelectorAll('.page');
 
     // Adjust font size
-    currentFontSize += increase ? 2 : -2; // Increase or decrease by 2px
-    currentFontSize = Math.max(12, Math.min(currentFontSize, 32)); // Limit font size between 12px and 32px
-
-    // Apply font size and line height to all paragraphs inside pages
+    currentFontSize += increase ? 2 : -2;
+    currentFontSize = Math.max(12, Math.min(currentFontSize, 32));
     pages.forEach(page => {
         const paragraphs = page.querySelectorAll('p'); // Target <p> elements
         paragraphs.forEach(paragraph => {
