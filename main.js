@@ -1,6 +1,8 @@
 
 import { Flipbook } from './flipbook.js';
 import { toggleFullscreen, setupModalClose } from './scripts/functions.js';
+import { adjustFontSize, toggleDarkMode } from './scripts/accesibility.js';
+
 
 document.addEventListener("DOMContentLoaded", async function () {
     const pathSegments = window.location.pathname.split('/').filter(Boolean);
@@ -27,7 +29,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         const basePath = `${window.location.origin}/curso-lectura-A1/${book}/${chapter}/pages`;
-        console.log('Dynamic Base Path:', basePath);
 
         const flipbook = new Flipbook('#flipbook', '#progress-bar', '#page-counter');
         flipbook.initialize(basePath, pagesCount);
@@ -36,11 +37,56 @@ document.addEventListener("DOMContentLoaded", async function () {
         const fullscreenBtn = document.getElementById('fullscreen-btn');
         const fullscreenContainer = document.getElementById('fullscreen-container');
         const iframeElement = document.getElementById('myIframe');
+
+        const toggleButton = document.getElementById("toggle-accessibility-btn");
+        const controls = document.getElementById("accessibility-controls");
+
+
+        controls.classList.add("hidden");
+        toggleButton.addEventListener("click", () => {
+            controls.classList.toggle("hidden"); // Toggle the "hidden" class
+
+        });
+
+
+        // toggleButton.addEventListener("click", () => {
+        //     controls.classList.toggle("hidden"); // Toggle the "hidden" class
+
+        //     if (isMobile()) {
+        //         if (controls.classList.contains("hidden")) {
+        //             // When controls are hidden
+        //             accesibilityToggle.style.bottom = "20px"; // Default position
+        //         } else {
+        //             // When controls are visible
+        //             accesibilityToggle.style.bottom = "100px"; // Adjust for controls
+        //         }
+        //     } else {
+        //         // Reset position on desktop
+        //         accesibilityToggle.style.bottom = "20px";
+        //     }
+        // });
+
+
         fullscreenBtn.addEventListener('click', () => toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement));
 
 
         // Set up modal close functionality
         const modalCloseButton = document.getElementById('close-modal');
+
+
+
+
+        document.getElementById('increase-font-btn').addEventListener('click', () => {
+            adjustFontSize(true);
+        });
+
+        document.getElementById('decrease-font-btn').addEventListener('click', () => {
+            adjustFontSize(false);
+        });
+
+        document.getElementById('dark-mode-btn').addEventListener('click', toggleDarkMode);
+
+
         setupModalClose(modalCloseButton);
     } catch (error) {
         console.error("Error initializing Flipbook:", error);

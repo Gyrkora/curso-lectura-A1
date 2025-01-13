@@ -1,5 +1,7 @@
 :root {
     --light_green: #f8ffe5;
+    --verde-claro: #76c7c0;
+    --rojo-tow: #bd1212;
 }
 
 p {
@@ -8,7 +10,7 @@ p {
 
 h1,
 h2 {
-    color: #bd1212;
+    color: var(--rojo-tow);
     text-align: center;
 }
 
@@ -17,7 +19,7 @@ h2 {
 }
 
 .tow-red-color {
-    color: #bd1212;
+    color: var(--rojo-tow);
 }
 
 .in-bold {
@@ -25,7 +27,8 @@ h2 {
 }
 
 .bold-red-tow {
-    color: #bd1212;
+    color: var(--rojo-tow);
+    ;
     font-weight: bold;
 }
 
@@ -46,7 +49,7 @@ h2 {
 
 
 .dialog-container strong {
-    color: #bd1212;
+    color: var(--rojo-tow);
 
 }
 
@@ -71,36 +74,8 @@ body {
     /* display: block;  */
 }
 
-#fullscreen-container:fullscreen,
-#fullscreen-container:-webkit-full-screen,
-#fullscreen-container:-moz-full-screen,
-#fullscreen-container:-ms-fullscreen {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0px;
-    overflow: hidden;
-    background-color: red;
-    /* Prevent scrollbars */
-}
 
-
-
-#flipbook:fullscreen,
-#flipbook:-webkit-full-screen,
-#flipbook:-moz-full-screen,
-#flipbook:-ms-fullscreen {
-    width: 100vw;
-    /* Use viewport width */
-    height: 100vh;
-    /* Use viewport height */
-    margin: 0;
-    padding: 100px;
-    background-color: red;
-}
-
+/* FULLSCREEN */
 
 .is-fullscreen #flipbook {
     display: flex;
@@ -110,8 +85,6 @@ body {
     margin: 0;
     padding: 0px;
     overflow: hidden;
-
-    /* background-color: red; */
 
 }
 
@@ -140,6 +113,8 @@ body {
 }
 
 
+
+
 #fullscreen-container {
     display: flex;
     flex-direction: column;
@@ -155,14 +130,7 @@ body {
 }
 
 
-/* @media (max-width: 480px) {
-    #fullscreen-container {
-
-
-        width: 100%;
-        height: 100%;
-    }
-} */
+/* FLIPBOOK */
 
 #flipbook {
 
@@ -174,22 +142,13 @@ body {
     border-radius: 5px;
     flex: 1;
     height: 100%;
-    /* This allows the flipbook to take the full container height */
     width: 100%;
-    /* Ensures the flipbook stretches to fill available space */
     position: relative;
 
 
 
-
-    /* Ensures it stretches horizontally */
-
-
 }
 
-/* .page:fullscreen {
-    font-size: 120px;
-} */
 
 
 .page {
@@ -213,7 +172,7 @@ body {
 }
 
 
-
+/* PAGES */
 
 .page h2 {
     margin: 0;
@@ -237,7 +196,17 @@ body {
     margin-top: 0px !important;
 }
 
+.page-number {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
 
+}
+
+
+/* IMAGES */
 
 .mirando-espejo-img {
     height: 300px;
@@ -252,14 +221,6 @@ body {
     height: auto;
 }
 
-.picture_one {
-    background-image: url('https://amazonfrontlines.org/wp-content/uploads/2022/04/8-reasons-waorani-victory-21-es-1536x1024.jpeg');
-    background-size: cover;
-    background-position: center;
-    height: 800px;
-    width: 100%;
-
-}
 
 .picture_two {
     background-image: url('images/post-infografia-cap1.png');
@@ -271,49 +232,13 @@ body {
 }
 
 
-.button-pop-up-h5p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* margin: 0 auto; */
-    margin-top: 60px;
-    background-color: #bd1212;
-    border: none !important;
-    color: white;
-    padding: 30px 15px;
-    text-align: center !important;
-    text-decoration: none;
-    font-size: 15px;
-    /* margin: 25px 2px; */
-    cursor: pointer;
-    border-radius: 20px;
-    max-width: 60%;
-    height: 40px;
-}
-
-.button-pop-up-h5p:hover {
-    background-color: #0d7f37;
-    transition: all 0.5s ease;
-    transform: scale(1.3);
-    /* transform:  */
-}
 
 
-.page-number {
-    position: absolute;
-    bottom: 15px;
-    /* Positions the element at the bottom of the container */
-    left: 0;
-    /* Optional: align it to the left edge */
-    width: 100%;
-    /* Optional: make it span the full width of the container */
-    text-align: center;
-    /* Optional: center-align the text inside */
-    /* background: #333; */
-
-}
 
 
+/* FUNCIONALIDADES */
+
+/* progress bar */
 
 #progress-container {
 
@@ -328,7 +253,7 @@ body {
 #progress-bar {
     width: 0%;
     height: 100%;
-    background: #76c7c0;
+    background: var(--verde-claro);
     transition: width 0.3s;
 
 
@@ -336,31 +261,149 @@ body {
 }
 
 
-#fullscreen-btn {
+
+/* BUTTONS */
+
+/* button H5P exercise */
+
+.button-pop-up-h5p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    background-color: var(--verde-claro);
+    border: none !important;
+    color: black;
+    padding: 30px 15px;
+    text-align: center !important;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    max-width: 60%;
+    height: 40px;
+}
+
+.button-pop-up-h5p:hover {
+    background-color: #101311;
+    transition: all 0.5s ease;
+    transform: scale(1.3);
+    color: white;
+}
+
+
+
+/* ACCESIBILITY */
+
+#accessibility-toggle {
     position: fixed;
     bottom: 20px;
     left: 50%;
-    /* Position the left side of the button at 50% of the viewport */
     transform: translateX(-50%);
-    /* Move it back 50% of its width to center it */
     z-index: 9999;
+}
+
+#accessibility-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9998;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#accessibility-toggle button {
+    padding: 10px 20px;
+    background-color: var(--verde-claro);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.5s ease, transform 0.2s;
+}
+
+#accessibility-toggle button:hover {
+    background-color: #2b2e2e;
+    color: white;
+}
+
+#accessibility-controls button {
     padding: 10px 15px;
-    background-color: #76c7c0;
-    color: #fff;
+    background-color: var(--verde-claro);
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s;
 }
 
-#fullscreen-btn:hover {
+#accessibility-controls button:hover {
     background-color: #2b2e2e;
+    transform: scale(1.1);
+    color: white;
 }
+
+@media (max-width: 768px) {
+    #accessibility-toggle {
+        bottom: 15px;
+    }
+
+    #accessibility-controls {
+        bottom: 80px;
+        padding: 8px 15px;
+        gap: 10px;
+    }
+}
+
+
+
+.hidden {
+    display: none !important;
+}
+
+
+
+/* dark mode */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;
+}
+
+body.dark-mode .page {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-mode button {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+body.dark-mode button:hover {
+    background-color: #444;
+}
+
+
+
+
 
 
 
 
 /* Modal container - hidden by default */
+
+/* General Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -369,32 +412,42 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.7);
+    /* Dark background overlay */
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    /* Allow scrolling for long content */
 }
 
-/* Modal content box */
+
+
+/* Modal Content Styling */
 .modal-content {
+    position: relative;
     background-color: #fff;
     padding: 20px;
     width: 90%;
-    max-width: 400px;
-    border-radius: 8px;
+    max-width: 800px;
+    max-height: 90vh;
+    border-radius: 10px;
     text-align: center;
+
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
+    overflow-y: auto;
 }
 
 /* Close button */
+
 .close-btn {
     position: absolute;
     top: 10px;
     right: 15px;
     font-size: 24px;
+    font-weight: bold;
     color: #aaa;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .close-btn:hover {
@@ -420,8 +473,6 @@ body {
 
 
 
-
-
 /* modal experimental */
 
 #translation-btn {
@@ -440,39 +491,8 @@ a:hover {
     color: #bd1212;
 }
 
-/* General Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    /* Dark background overlay */
-    justify-content: center;
-    align-items: center;
-    overflow: auto;
-    /* Allow scrolling for long content */
-}
 
-/* Modal Content Styling */
-.modal-content {
-    position: relative;
-    background-color: #fff;
-    padding: 20px;
-    width: 90%;
-    /* Adjust width for desktop */
-    max-width: 800px;
-    /* Maximum width for modal */
-    max-height: 90vh;
-    /* Limit modal height */
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    overflow-y: auto;
-    /* Enable vertical scrolling for content */
-}
+
 
 /* Modal Title Styling */
 .modal-content h2 {
@@ -482,21 +502,7 @@ a:hover {
     color: #333;
 }
 
-/* Close Button Styling */
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #aaa;
-    cursor: pointer;
-    transition: color 0.3s;
-}
 
-.close-btn:hover {
-    color: #000;
-}
 
 /* Scrollbar Customization */
 .modal-content::-webkit-scrollbar {
@@ -536,10 +542,7 @@ a:hover {
 
 
 
-
-
-
-
+/* RESPONSIVE */
 
 
 
@@ -605,9 +608,6 @@ a:hover {
         padding: 40px;
     }
 
-    /* #fullscreen-btn {
-        display: none;
-    } */
 
 
 }

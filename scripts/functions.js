@@ -14,6 +14,10 @@ function openSmallWindow(siteKey) {
 
 
 
+
+
+
+
 // Function to dynamically load and render Markdown content
 async function loadMarkdown(chapter, language) {
     const markdownPath = `../../traducciones/${chapter}/${chapter}-${language}.md`; // Adjust path to match your structure

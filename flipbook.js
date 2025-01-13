@@ -154,19 +154,11 @@ export class Flipbook {
         if (document.fullscreenElement) {
 
             if (width < 1200) {
-                // Extra large screens
                 this.flipbook.turn('display', 'single');
                 this.flipbook.turn('size', 600, 630)
 
             }
 
-            // pages.forEach(page => {
-            //     page.style.padding = '20px'; // Add extra padding
-            //     page.style.lineHeight = 2;
-            //     // page.style.margin = '0'; // Remove margins
-            //     // page.style.backgroundColor = '#000'; // Dark background for fullscreen
-            //     // page.style.color = '#fff'; // Light text color
-            // })
 
             this.flipbook.turn('size', 1200, height);
 
