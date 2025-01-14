@@ -197,9 +197,9 @@ body {
 .page-number {
     position: absolute;
     bottom: 15px;
-    left: 0;
+    left: -10px;
     width: 100%;
-    text-align: center;
+    text-align: right;
 
 }
 
@@ -594,4 +594,147 @@ a:hover {
 
 
 
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    #fullscreen-container {
+        height: 80vh;
+        /* Limit the height for vertical iPad */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        /* Ensure background looks clean */
+    }
+
+    #flipbook {
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .page {
+        height: calc(80vh - 40px);
+        /* Subtract padding or controls if needed */
+        overflow: auto;
+        /* Allow scrolling inside the page if content is long */
+    }
+}
+
+
+
+
+
+
+
+
+.highlighted-word {
+    color: #d63384;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline dotted;
+}
+
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.tippy-box[data-animation="bounce"][data-state="visible"] {
+    animation: bounce 0.5s ease-in-out;
+}
+
+/* General Tooltip Box */
+.tippy-box[data-theme="light"] {
+    background-color: black;
+    /* Light yellow background */
+    color: #333;
+    /* Dark text */
+    border-radius: 8px;
+    /* Rounded corners */
+    border: 1px solid #ddd;
+    /* Light border */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+    font-family: Arial, sans-serif;
+    /* Custom font */
+    padding: 8px;
+    /* Padding inside the tooltip */
+}
+
+/* Tooltip Arrow */
+.tippy-box[data-theme="light"] .tippy-arrow {
+    color: black;
+    /* Matches the tooltip background */
+}
+
+/* Tooltip Arrow Border (Optional) */
+.tippy-box[data-theme="light"] .tippy-arrow:before {
+    border: 1px solid transparent;
+    /* Match the border of the tooltip */
+}
+
+/* Text Customization */
+.tippy-content {
+    font-size: 14px;
+    /* Adjust font size */
+    line-height: 1.4;
+    /* Line spacing */
+    text-align: center;
+    color: white;
+    /* Align text */
+}
+
+/* Dark Theme */
+.tippy-box[data-theme="dark"] {
+    background-color: #333;
+    /* Dark background */
+    color: #fdf6e3;
+    /* Light text */
+    border-radius: 5px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Dark Arrow */
+.tippy-box[data-theme="dark"] .tippy-arrow {
+    color: #333;
+}
+
+
+.tooltip-content {
+    text-align: center;
+    font-size: 14px;
+}
+
+.tooltip-buttons {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+}
+
+.tooltip-buttons button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.tooltip-buttons button:hover {
+    background-color: #ddd;
+    border-color: #bbb;
 }

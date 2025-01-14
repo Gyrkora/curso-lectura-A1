@@ -1,0 +1,18 @@
+{
+  "ingeniera": {
+    "default": "engineer (feminine).",
+    "translations": {
+      "en": "Engineer (feminine).",
+      "zh": "工程师 (女性).",
+      "es": "Ingeniera (femenino)."
+    }
+  },
+  "aire acondicionado": {
+    "default": "air conditioning.",
+    "translations": {
+      "en": "Air conditioning.",
+      "zh": "空调.",
+      "es": "Aire acondicionado."
+    }
+  }
+}
