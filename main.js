@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const fullscreenBtn = document.getElementById('fullscreen-btn');
         const fullscreenContainer = document.getElementById('fullscreen-container');
         const iframeElement = document.getElementById('myIframe');
-
         const toggleButton = document.getElementById("toggle-accessibility-btn");
         const controls = document.getElementById("accessibility-controls");
 
@@ -58,17 +57,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
 
 
-
-
         fullscreenBtn.addEventListener('click', () => toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement));
 
 
         // Set up modal close functionality
         const modalCloseButton = document.getElementById('close-modal');
-
-
-
-
 
 
 

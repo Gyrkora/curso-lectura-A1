@@ -139,8 +139,6 @@ export function showMobileModal() {
 
 
 
-
-
 export function toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeElement, flipbookInstance) {
     if (isMobileDevice()) {
         // Show the mobile modal if the user is on a mobile device
@@ -192,14 +190,6 @@ export function toggleFullscreen(fullscreenBtn, fullscreenContainer, iframeEleme
         }
     });
 }
-
-
-
-
-
-
-
-
 
 
 

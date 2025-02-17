@@ -37,34 +37,7 @@ export class Flipbook {
 
     }
 
-    // async loadPagesSequentially(basePath, pagesCount, vocabularyPath) {
-    //     for (let i = 1; i <= pagesCount; i++) {
-    //         try {
-    //             const path = `${basePath}/page${i}.html`;
-    //             const response = await fetch(path);
 
-    //             if (!response.ok) {
-    //                 throw new Error(`Error loading page ${i}: ${response.statusText}`);
-    //             }
-
-
-    //             let htmlContent = await response.text();
-    //             htmlContent = await this.highlightWordsInPage(htmlContent, vocabularyPath); // Pass vocabularyPath here
-    //             const parser = new DOMParser();
-    //             const doc = parser.parseFromString(htmlContent, 'text/html');
-    //             const bodyContent = doc.body.innerHTML;
-
-    //             const pageElement = $(`<div class="page">${bodyContent}</div>`);
-    //             this.applyFontSize(pageElement);
-    //             this.flipbook.turn('addPage', pageElement, i);
-
-    //             this.initializeTooltips(pageElement);
-
-    //         } catch (error) {
-    //             console.error(`Error loading page ${i}:`, error);
-    //         }
-    //     }
-    // }
 
 
     async loadPagesSequentially(basePath, pagesCount, vocabularyPath) {
@@ -85,7 +58,6 @@ export class Flipbook {
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`);
 
-                // For example, if page 2 should have the background image:
                 if (i === 7) {
                     pageElement.addClass('bg-page');
                 }

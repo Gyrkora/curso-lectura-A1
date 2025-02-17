@@ -145,10 +145,7 @@ body {
     width: 100%;
     position: relative;
 
-
-
 }
-
 
 
 .page {
@@ -225,17 +222,8 @@ body {
     width: 100%;
 }
 
-/* .img-asBg {
-    background-image: url('../images/pre-entrevista-2.png');
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    width: 100%;
-    padding: 30px !important;
-} */
 
 .pre-entrevista-img {
-    /* width: 300px; */
     width: 95%;
     height: auto;
     display: flex;
@@ -245,10 +233,8 @@ body {
     width: 95%;
     height: auto;
     margin: 0 !important;
-    margin-top: 20px !important;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
+    margin-top: 50px !important;
+
 
 }
 
@@ -266,10 +252,6 @@ body {
     width: 100%;
 
 }
-
-
-
-
 
 
 /* FUNCIONALIDADES */
@@ -630,6 +612,11 @@ a:hover {
         padding: 40px;
     }
 
+    #accessibility-controls {
+
+        flex-direction: column;
+    }
+
 
 
 }
@@ -775,4 +762,19 @@ a:hover {
 .tooltip-buttons button:hover {
     background-color: #ddd;
     border-color: #bbb;
+}
+
+
+/* Change the background of the control panel in WebKit browsers */
+audio::-webkit-media-controls-panel {
+    background-color: var(--verde-claro);
+    /* Dark background */
+    /* border-radius: 5px; */
+}
+
+
+
+audio {
+    width: 250px;
+    height: 35px;
 }
