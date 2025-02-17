@@ -1,6 +1,7 @@
 :root {
     --light_green: #f8ffe5;
-    --verde-claro: #76c7c0;
+    /* --verde-claro: #76c7c0; */
+    --verde-claro: #2ac08f;
     --rojo-tow: #bd1212;
 }
 
@@ -8,8 +9,11 @@ p {
     font-size: 18px;
 }
 
+
+
 h1,
-h2 {
+h2,
+h3 {
     color: var(--rojo-tow);
     text-align: center;
 }

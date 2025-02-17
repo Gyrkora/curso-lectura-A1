@@ -66,6 +66,10 @@ export class Flipbook {
                 this.flipbook.turn('addPage', pageElement, i);
                 this.initializeTooltips(pageElement);
 
+                $(pageElement).find("#practiceButton").on("click", () => {
+                    openSmallWindow("practica_entrevista");
+                });
+
             } catch (error) {
                 console.error(`Error loading page ${i}:`, error);
             }
