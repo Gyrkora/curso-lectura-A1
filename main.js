@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const basePath = `${window.location.origin}/curso-lectura-A1/${book}/${chapter}/pages`;
         const vocabularyPath = `${window.location.origin}/curso-lectura-A1/api/vocabulary.json`;
 
-
-
         const flipbook = new Flipbook('#flipbook', '#progress-bar', '#page-counter', vocabularyPath);
         flipbook.initialize(basePath, pagesCount, vocabularyPath);
 

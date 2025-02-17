@@ -1,18 +1,122 @@
 {
-  "ingeniera": {
-    "default": "engineer (feminine).",
+  "metro": {
+    "default": "metro - sustantivo masculino.",
     "translations": {
-      "en": "Engineer (feminine).",
-      "zh": "工程师 (女性).",
-      "es": "Ingeniera (femenino)."
+      "en": "Subway.",
+      "zh": "工程师.",
+      "es": "metro - sustantivo masculino"
     }
   },
-  "aire acondicionado": {
-    "default": "air conditioning.",
+  "mientras": {
+    "default": "while.",
     "translations": {
-      "en": "Air conditioning.",
+      "en": "While.",
       "zh": "空调.",
-      "es": "Aire acondicionado."
+      "es": "Mientras."
+    }
+  },
+  "enfrentar": {
+    "default": "to confront.",
+    "translations": {
+      "en": "To confront.",
+      "zh": "空调.",
+      "es": "Enfrentar."
+    }
+  },
+  "desafíos": {
+    "default": "challenges (masculine).",
+    "translations": {
+      "en": "Challenges (masculine).",
+      "zh": "空调.",
+      "es": "Desafíos."
+    }
+  },
+  "duda": {
+    "default": "to hesitate.",
+    "translations": {
+      "en": "To hesitate.",
+      "zh": "空调.",
+      "es": "Duda."
+    }
+  },
+  "casona": {
+    "default": "large house (feminine).",
+    "translations": {
+      "en": "Large house (feminine).",
+      "zh": "空调.",
+      "es": "Casona."
+    }
+  },
+  "doña": {
+    "default": "mrs. (feminine).",
+    "translations": {
+      "en": "Mrs. (feminine).",
+      "zh": "空调.",
+      "es": "Doña."
+    }
+  },
+  "sudan": {
+    "default": "to sweat.",
+    "translations": {
+      "en": "To sweat.",
+      "zh": "空调.",
+      "es": "Sudar."
+    }
+  },
+  "cuénteme": {
+    "default": "tell me.",
+    "translations": {
+      "en": "Tell me.",
+      "zh": "空调.",
+      "es": "Cuénteme."
+    }
+  },
+  "actualmente": {
+    "default": "currently.",
+    "translations": {
+      "en": "Currently.",
+      "zh": "空调.",
+      "es": "Actualmente."
+    }
+  },
+  "sorbo": {
+    "default": "sip (masculine).",
+    "translations": {
+      "en": "Sip (masculine).",
+      "zh": "空调.",
+      "es": "Sorbo."
+    }
+  },
+  "quizás": {
+    "default": "maybe.",
+    "translations": {
+      "en": "Maybe.",
+      "zh": "空调.",
+      "es": "Quizás."
+    }
+  },
+  "pues": {
+    "default": "since.",
+    "translations": {
+      "en": "Since.",
+      "zh": "空调.",
+      "es": "Pues."
+    }
+  },
+  "mejilla": {
+    "default": "cheek (feminine).",
+    "translations": {
+      "en": "Cheek.",
+      "zh": "空调.",
+      "es": "Mejilla."
+    }
+  },
+  "ojalá": {
+    "default": "I hope so.",
+    "translations": {
+      "en": "I hope so.",
+      "zh": "空调.",
+      "es": "Ojalá."
     }
   }
 }

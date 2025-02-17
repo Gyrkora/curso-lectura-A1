@@ -15,7 +15,7 @@ h2 {
 }
 
 .text-center {
-    text-align: center;
+    text-align: center !important;
 }
 
 .tow-red-color {
@@ -56,6 +56,8 @@ h2 {
 .dialog-container p {
     text-align: left !important;
 }
+
+
 
 
 
@@ -211,6 +213,42 @@ body {
     width: 410px;
     display: flex;
 
+
+}
+
+.page.bg-page {
+    padding: 0 !important;
+    background-image: url('../images/pre-entrevista-2.png');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    width: 100%;
+}
+
+/* .img-asBg {
+    background-image: url('../images/pre-entrevista-2.png');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    padding: 30px !important;
+} */
+
+.pre-entrevista-img {
+    /* width: 300px; */
+    width: 95%;
+    height: auto;
+    display: flex;
+}
+
+.en-entrevista-img {
+    width: 95%;
+    height: auto;
+    margin: 0 !important;
+    margin-top: 20px !important;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
 
 }
 

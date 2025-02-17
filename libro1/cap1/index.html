@@ -2,6 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://code.jquery.com https://unpkg.com;"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Flipbook with Turn.js</title>
     <link
@@ -10,7 +15,6 @@
     />
     <link rel="stylesheet" href="../../styles/styles.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/2.5.4/tippy.all.js"></script> -->
     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
