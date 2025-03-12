@@ -62,6 +62,10 @@ export class Flipbook {
                     pageElement.addClass('bg-page');
                 }
 
+                if (i === 15) {
+                    pageElement.addClass('flex-center');
+                }
+
                 this.applyFontSize(pageElement);
                 this.flipbook.turn('addPage', pageElement, i);
                 this.initializeTooltips(pageElement);

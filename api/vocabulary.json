@@ -1,122 +1,122 @@
 {
   "metro": {
-    "default": "metro - sustantivo masculino.",
+    "default": "Metro - sustantivo masculino.",
     "translations": {
       "en": "Subway.",
-      "zh": "工程师.",
-      "es": "metro - sustantivo masculino"
+      "zh": "地鐵 / 地铁.",
+      "es": "Metro - sustantivo masculino."
     }
   },
   "mientras": {
-    "default": "while.",
+    "default": "Mientras - conjunción.",
     "translations": {
       "en": "While.",
-      "zh": "空调.",
-      "es": "Mientras."
+      "zh": "當…時 / 当…时.",
+      "es": "Mientras - conjunción."
     }
   },
   "enfrentar": {
-    "default": "to confront.",
+    "default": "Enfrentar - verbo.",
     "translations": {
       "en": "To confront.",
-      "zh": "空调.",
-      "es": "Enfrentar."
+      "zh": "面對 / 面对.",
+      "es": "Enfrentar - verbo."
     }
   },
   "desafíos": {
-    "default": "challenges (masculine).",
+    "default": "Desafíos - sustantivo masculino.",
     "translations": {
-      "en": "Challenges (masculine).",
-      "zh": "空调.",
-      "es": "Desafíos."
+      "en": "Challenges.",
+      "zh": "挑戰 / 挑战.",
+      "es": "Desafíos - sustantivo masculino."
     }
   },
   "duda": {
-    "default": "to hesitate.",
+    "default": "Duda - verbo en presente.",
     "translations": {
       "en": "To hesitate.",
-      "zh": "空调.",
-      "es": "Duda."
+      "zh": "猶豫 / 犹豫.",
+      "es": "Duda - verbo en presente."
     }
   },
   "casona": {
-    "default": "large house (feminine).",
+    "default": "Casona - sustantivo femenino.",
     "translations": {
-      "en": "Large house (feminine).",
-      "zh": "空调.",
-      "es": "Casona."
+      "en": "Large house .",
+      "zh": "大房子.",
+      "es": "Casona - sustantivo femenino."
     }
   },
   "doña": {
-    "default": "mrs. (feminine).",
+    "default": "Doña - sustantivo femenino.",
     "translations": {
-      "en": "Mrs. (feminine).",
-      "zh": "空调.",
-      "es": "Doña."
+      "en": "Mrs..",
+      "zh": "女士.",
+      "es": "Doña - sustantivo femenino."
     }
   },
   "sudan": {
-    "default": "to sweat.",
+    "default": "Sudan - verbo en presente.",
     "translations": {
       "en": "To sweat.",
-      "zh": "空调.",
-      "es": "Sudar."
+      "zh": "流汗.",
+      "es": "Sudan - verbo en presente."
     }
   },
   "cuénteme": {
-    "default": "tell me.",
+    "default": "Cuénteme - verbo modo imperativo.",
     "translations": {
       "en": "Tell me.",
-      "zh": "空调.",
-      "es": "Cuénteme."
+      "zh": "告訴我 / 告诉我.",
+      "es": "Cuénteme - verbo modo imperativo."
     }
   },
   "actualmente": {
-    "default": "currently.",
+    "default": "Actualmente - adverbio.",
     "translations": {
       "en": "Currently.",
-      "zh": "空调.",
-      "es": "Actualmente."
+      "zh": "目前.",
+      "es": "Actualmente - adverbio."
     }
   },
   "sorbo": {
-    "default": "sip (masculine).",
+    "default": "Sorbo - sustantivo masculino.",
     "translations": {
-      "en": "Sip (masculine).",
-      "zh": "空调.",
-      "es": "Sorbo."
+      "en": "Sip.",
+      "zh": "啜飲 / 啜饮.",
+      "es": "Sorbo - sustantivo masculino."
     }
   },
   "quizás": {
-    "default": "maybe.",
+    "default": "Quizás - adverbio.",
     "translations": {
       "en": "Maybe.",
-      "zh": "空调.",
-      "es": "Quizás."
+      "zh": "也許 / 也许.",
+      "es": "Quizás - adverbio."
     }
   },
   "pues": {
-    "default": "since.",
+    "default": "Pues - conjunción.",
     "translations": {
       "en": "Since.",
-      "zh": "空调.",
-      "es": "Pues."
+      "zh": "那麼 / 那么.",
+      "es": "Pues - conjunción."
     }
   },
   "mejilla": {
-    "default": "cheek (feminine).",
+    "default": "Mejilla - sustantivo femenino.",
     "translations": {
       "en": "Cheek.",
-      "zh": "空调.",
-      "es": "Mejilla."
+      "zh": "臉頰 / 脸颊.",
+      "es": "Mejilla - sustantivo femenino."
     }
   },
   "ojalá": {
-    "default": "I hope so.",
+    "default": "Ojalá - adverbio.",
     "translations": {
       "en": "I hope so.",
-      "zh": "空调.",
-      "es": "Ojalá."
+      "zh": "希望.",
+      "es": "Ojalá - adverbio."
     }
   }
 }
