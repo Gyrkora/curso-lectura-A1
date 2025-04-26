@@ -54,7 +54,9 @@ h3 {
     font-style: italic;
 }
 
-
+.invisible {
+    color: transparent !important;
+}
 
 .dialog-container strong {
     color: var(--rojo-tow);
@@ -227,7 +229,6 @@ body {
 
 .page.bg-page {
     padding: 0 !important;
-    background-image: url('../images/pre-entrevista-2.png');
     background-size: cover;
     background-position: center;
     height: 600px;

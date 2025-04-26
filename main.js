@@ -1,50 +1,51 @@
+// Updated main.js
 import { Flipbook } from './flipbook.js';
 import { toggleFullscreen, setupModalClose } from './scripts/functions.js';
 import { adjustFontSize, toggleDarkMode } from './scripts/accesibility.js';
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener('DOMContentLoaded', async () => {
     const pathSegments = window.location.pathname.split('/').filter(Boolean);
     const book = pathSegments[1];
     const chapter = pathSegments[2];
 
     if (!book || !chapter) {
-        console.error("Invalid book or chapter path");
+        console.error('Invalid book or chapter path');
         return;
     }
 
     try {
-        // 1. Fetch the updated configuration (now including pagesCount and bgPages)
+        // Fetch updated configuration including pagesCount and bgImages
         const configResponse = await fetch('/curso-lectura-A1/config.json');
         if (!configResponse.ok) {
-            throw new Error("Failed to load configuration file.");
+            throw new Error('Failed to load configuration file.');
         }
         const config = await configResponse.json();
 
-        // 2. Pull out both pagesCount and bgPages for this chapter
+        // Extract pagesCount and bgImages for this chapter
         const chapterConfig = config[book]?.[chapter];
         if (!chapterConfig) {
             throw new Error(`No config found for ${book}/${chapter}`);
         }
         const pagesCount = chapterConfig.pagesCount;
-        const bgPages = chapterConfig.bgPages || [];
+        const bgImages = chapterConfig.bgImages || {};
 
-        // 3. Build paths
+        // Build resource paths
         const basePath = `${window.location.origin}/curso-lectura-A1/${book}/${chapter}/pages`;
         const vocabularyPath = `${window.location.origin}/curso-lectura-A1/api/vocabulary.json`;
 
-        // 4. Instantiate Flipbook, passing in bgPages array
+        // Instantiate Flipbook with bgImages map
         const flipbook = new Flipbook(
             '#flipbook',
             '#progress-bar',
             '#page-counter',
             vocabularyPath,
-            bgPages
+            bgImages
         );
 
-        // 5. Initialize with basePath and pagesCount
+        // Initialize flipbook
         flipbook.initialize(basePath, pagesCount);
 
-        // Accessibility & Controls (unchanged)
+        // Accessibility & Controls
         const fullscreenBtn = document.getElementById('fullscreen-btn');
         const fullscreenContainer = document.getElementById('fullscreen-container');
         const iframeElement = document.getElementById('myIframe');
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById('increase-font-btn').addEventListener('click', () => {
             flipbook.adjustFontSize(true);
         });
+
         document.getElementById('decrease-font-btn').addEventListener('click', () => {
             flipbook.adjustFontSize(false);
         });
@@ -72,8 +74,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         const modalCloseButton = document.getElementById('close-modal');
         setupModalClose(modalCloseButton);
     } catch (error) {
-        console.error("Error initializing Flipbook:", error);
+        console.error('Error initializing Flipbook:', error);
     }
 });
-
-

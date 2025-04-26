@@ -2,27 +2,28 @@
     "libro1": {
         "cap1": {
             "pagesCount": 22,
-            "bgPages": [
-                10
-            ]
+            "bgImages": {
+                "1": "/curso-lectura-A1/images/portada.png",
+                "10": "/curso-lectura-A1/images/pre-entrevista-2.png"
+            }
         },
         "cap2": {
             "pagesCount": 3,
-            "bgPages": []
+            "bgImages": {
+                "1": "/curso-lectura-A1/images/portada.png"
+            }
         }
     },
     "libro2": {
         "cap1": {
             "pagesCount": 1,
-            "bgPages": [
-                1
-            ]
+            "bgImages": {}
         },
         "cap2": {
             "pagesCount": 22,
-            "bgPages": [
-                22
-            ]
+            "bgImages": {
+                "1": "/curso-lectura-A1/images/portada.png"
+            }
         }
     }
 }
