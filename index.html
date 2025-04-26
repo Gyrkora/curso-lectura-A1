@@ -3,16 +3,146 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flipbook Hub</title>
+    <title>Flipbook Hub – The Other Way Spanish</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <style>
+      :root {
+        --light_bg: var(--light_green);
+      }
+      body {
+        background-color: var(--light_bg);
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      header {
+        background-color: var(--rojo-tow);
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      h1 {
+        color: white;
+      }
+      header p {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .container {
+        max-width: 960px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      /* Stack cards vertically */
+      .book-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .book-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s;
+      }
+      .book-card:hover {
+        transform: translateY(-5px);
+      }
+      .book-card h2 {
+        margin: 0;
+        padding: 1rem;
+        font-size: 1.25rem;
+        background-color: var(--verde-claro);
+        color: #fff;
+      }
+      .book-card ul {
+        list-style: none;
+        padding: 1rem;
+        margin: 0;
+      }
+      .book-card ul li {
+        margin-bottom: 0.5rem;
+      }
+      .book-card ul li a {
+        display: block;
+        padding: 0.5rem;
+        color: var(--rojo-tow);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+      .book-card ul li a:hover {
+        background-color: #bd1212;
+        color: white !important;
+      }
+      .review {
+        padding: 1rem;
+        margin: 0 1rem 1rem;
+        background-color: #f5f5f5;
+        border-left: 4px solid var(--rojo-tow);
+      }
+      .review h3 {
+        margin-top: 0;
+        color: var(--rojo-tow);
+        font-size: 1.2rem;
+      }
+      .review p {
+        margin: 0.5rem 0;
+        line-height: 1.5;
+        text-align: justify;
+      }
+    </style>
   </head>
   <body>
-    <h1>Curso de Lectura - The Other Way Spanish</h1>
-    <ul>
-      <li>
-        <a href="libro1/cap1/index.html">Libro 1</a>
-        <a href="libro1/cap2/index.html">Capitulo 2</a>
-      </li>
-      <li><a href="libro2/cap1/index.html">Libro 2 </a></li>
-    </ul>
+    <header>
+      <h1>The Other Way Spanish</h1>
+      <p>Mejora tu comprensión leyendo 😊</p>
+    </header>
+    <div class="container">
+      <div class="book-list">
+        <div class="book-card">
+          <h2>Libro 1: De Taiwán a Chile</h2>
+          <div class="review">
+            <h3>Reseña</h3>
+            <p>
+              “De Taiwán a Chile” narra la emotiva travesía de Paloma, una joven
+              taiwanesa-chilena que deja atrás su vida en Taipéi para emprender
+              el desafío de rehacer su existencia en Santiago de Chile. A través
+              de un estilo claro y cercano, la novela explora temas de
+              identidad, pertenencia y el valor de la resiliencia al enfrentar
+              diferencias culturales y el choque inicial con un nuevo país.
+            </p>
+            <p>
+              El autor describe con detalle las costumbres, sabores y paisajes
+              chilenos desde la mirada curiosa de Paloma: sus primeras
+              impresiones al probar un completo, la calidez de las personas
+              locales y los retos cotidianos, como aprender modismos o adaptarse
+              al ritmo de la ciudad. Esa combinación de anécdotas divertidas y
+              momentos introspectivos convierte la lectura en un recorrido
+              vivencial, donde los lectores acompañan a Paloma en cada paso,
+              compartiendo sus dudas, sus logros y la nostalgia por sus raíces.
+            </p>
+            <p>
+              En definitiva, “De Taiwán a Chile” es una invitación a celebrar la
+              diversidad cultural y a reconocer que, pese a las diferencias,
+              todos buscamos un lugar donde sentirnos en casa. Una historia
+              inspiradora para quienes sueñan con nuevos comienzos y desean
+              comprender mejor cómo el viaje interior es tan importante como el
+              trayecto físico.
+            </p>
+          </div>
+          <ul>
+            <li><a href="libro1/cap1/index.html">Capítulo 1</a></li>
+            <li><a href="libro1/cap2/index.html">Capítulo 2</a></li>
+          </ul>
+        </div>
+        <div class="book-card">
+          <h2>Libro 2</h2>
+          <ul>
+            <li><a href="libro2/cap1/index.html">Capítulo 1</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
