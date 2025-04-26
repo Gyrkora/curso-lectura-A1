@@ -1,12 +1,13 @@
 export class Flipbook {
 
-    constructor(flipbookSelector, progressBarSelector, pageCounterSelector, vocabularyPath) {
+    constructor(flipbookSelector, progressBarSelector, pageCounterSelector, vocabularyPath, bgPages = []) {
         this.flipbook = $(flipbookSelector);
         this.progressBar = $(progressBarSelector); // Selector para la barra de progreso
         this.pageCounter = $(pageCounterSelector); // Selector para el contador de páginas
         this.pagesCount = 0; // Default pages count, will be set during initialization
         this.currentFontSize = 16; // Default font size
         this.vocabularyPath = vocabularyPath; // Save vocabularyPath for later use
+        this.bgPages = bgPages;
     }
 
     initialize(basePath, pagesCount) {
@@ -58,9 +59,10 @@ export class Flipbook {
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`);
 
-                if (i === 7) {
+                if (this.bgPages.includes(i)) {
                     pageElement.addClass('bg-page');
                 }
+
 
                 if (i === 15) {
                     pageElement.addClass('flex-center');

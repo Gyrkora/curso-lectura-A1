@@ -1,10 +1,28 @@
 {
     "libro1": {
-        "cap1": 18,
-        "cap2": 15
+        "cap1": {
+            "pagesCount": 22,
+            "bgPages": [
+                10
+            ]
+        },
+        "cap2": {
+            "pagesCount": 3,
+            "bgPages": []
+        }
     },
     "libro2": {
-        "cap1": 1,
-        "cap2": 22
+        "cap1": {
+            "pagesCount": 1,
+            "bgPages": [
+                1
+            ]
+        },
+        "cap2": {
+            "pagesCount": 22,
+            "bgPages": [
+                22
+            ]
+        }
     }
 }
