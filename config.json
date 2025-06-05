@@ -1,14 +1,14 @@
 {
     "libro1": {
         "cap1": {
-            "pagesCount": 20,
+            "pagesCount": 21,
             "bgImages": {
                 "1": "/curso-lectura-A1/images/portada.png",
-                "10": "/curso-lectura-A1/images/pre-entrevista-2.png"
+                "11": "/curso-lectura-A1/images/pre-entrevista-2.png"
             }
         },
         "cap2": {
-            "pagesCount": 3,
+            "pagesCount": 6,
             "bgImages": {
                 "1": "/curso-lectura-A1/images/portada.png"
             }
