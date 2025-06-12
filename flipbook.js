@@ -1,4 +1,7 @@
+import DOMPurify from "https://unpkg.com/dompurify@3.0.2/dist/purify.es.js";
+
 export class Flipbook {
+
 
     constructor(flipbookSelector, progressBarSelector, pageCounterSelector, vocabularyPath, bgImages = {}) {
         this.flipbook = $(flipbookSelector);
@@ -55,7 +58,7 @@ export class Flipbook {
                 htmlContent = await this.highlightWordsInPage(htmlContent, vocabularyPath);
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlContent, 'text/html');
-                const bodyContent = doc.body.innerHTML;
+                const bodyContent = DOMPurify.sanitize(doc.body.innerHTML);
 
                 const pageElement = $(`<div class="page">${bodyContent}</div>`);
 
@@ -161,6 +164,7 @@ export class Flipbook {
                         </div>
                     </div>
                 `;
+                const sanitizedTooltip = DOMPurify.sanitize(tooltipHTML);
 
                 // Store translations separately in a new data attribute
                 const translationData = JSON.stringify({
@@ -170,7 +174,8 @@ export class Flipbook {
 
 
 
-                const tooltipSpan = `<span class="highlighted-word" data-tippy-content='${tooltipHTML}' data-translation-data='${translationData}'>${word}</span>`;
+                const tooltipSpan = `<span class="highlighted-word" data-tippy-content='${sanitizedTooltip}' data-translation-data='${translationData}'>${word}</span>`;
+
                 const wordRegex = new RegExp(`\\b${word}\\b`, 'gi');
 
                 content = content.replace(wordRegex, tooltipSpan);
@@ -182,32 +187,6 @@ export class Flipbook {
             return content;
         }
     }
-
-
-
-
-    // async highlightWordsInPage(content, vocabularyPath) {
-    //     console.log("Highlighting words with vocabulary path:", vocabularyPath); // Debug log
-    //     try {
-    //         const response = await fetch(vocabularyPath);
-    //         if (!response.ok) {
-    //             throw new Error(`Failed to load vocabulary JSON: ${response.statusText}`);
-    //         }
-
-    //         const vocabulary = await response.json();
-    //         Object.keys(vocabulary).forEach((word) => {
-    //             const tooltipSpan = `<span class="highlighted-word" data-tippy-content="${vocabulary[word]}">${word}</span>`;
-    //             const wordRegex = new RegExp(`\\b${word}\\b`, 'gi');
-    //             content = content.replace(wordRegex, tooltipSpan);
-    //         });
-
-    //         return content;
-    //     } catch (error) {
-    //         console.error("Error highlighting words:", error);
-    //         return content;
-    //     }
-    // }
-
 
 
     applyFontSize(pageElement) {

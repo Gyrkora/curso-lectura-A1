@@ -1,11 +1,13 @@
 import { h5ps_cap1 } from "../api/internal-h5ps.js";
+import DOMPurify from "https://unpkg.com/dompurify@3.0.2/dist/purify.es.js";
+
 
 
 
 function openSmallWindow(siteKey) {
     const url = h5ps_cap1[siteKey];
     if (url) {
-        window.open(url, "_blank", "width=650,height=700");
+        window.open(url, "_blank", "noopener,noreferrer,width=650,height=700");
     } else {
         console.error(`URL for "${siteKey}" not found.`);
     }
@@ -30,6 +32,8 @@ async function loadMarkdown(chapter, language) {
         // Convert Markdown to HTML
         const converter = new showdown.Converter();
         const htmlContent = converter.makeHtml(markdown);
+        const sanitized = DOMPurify.sanitize(htmlContent);
+
 
         // Update modal content
         const modalTitle = document.getElementById("modal-title");
@@ -37,7 +41,7 @@ async function loadMarkdown(chapter, language) {
 
         if (modalTitle && modalContent) {
             modalTitle.textContent = `Translation - ${chapter} (${language})`;
-            modalContent.innerHTML = htmlContent;
+            modalContent.innerHTML = sanitized;
 
             // Show the modal
             const modal = document.getElementById("interpretation-modal");

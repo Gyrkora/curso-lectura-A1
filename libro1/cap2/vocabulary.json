@@ -1,0 +1,122 @@
+{
+    "falta": {
+        "default": "Falta - sustantivo femenino.",
+        "translations": {
+            "en": "Lack.",
+            "zh": "缺乏.",
+            "es": "Falta - sustantivo femenino."
+        }
+    },
+    "sin embargo": {
+        "default": "Sin embargo - locución adverbial.",
+        "translations": {
+            "en": "However.",
+            "zh": "然而.",
+            "es": "Sin embargo - locución adverbial."
+        }
+    },
+    "inquebrantable": {
+        "default": "Inquebrantable - adjetivo.",
+        "translations": {
+            "en": "Unbreakable.",
+            "zh": "堅不可摧 / 坚不可摧.",
+            "es": "Inquebrantable - adjetivo."
+        }
+    },
+    "ocupada": {
+        "default": "Ocupada - adjetivo.",
+        "translations": {
+            "en": "Busy.",
+            "zh": "忙碌.",
+            "es": "Ocupada - adjetivo."
+        }
+    },
+    "siesta": {
+        "default": "Siesta - sustantivo femenino.",
+        "translations": {
+            "en": "Nap.",
+            "zh": "午睡.",
+            "es": "Siesta - sustantivo femenino."
+        }
+    },
+    "toma once": {
+        "default": "Toma once - expresión usada en Chile.",
+        "translations": {
+            "en": "Tea time.",
+            "zh": "下午茶時間 / 下午茶时间.",
+            "es": "Toma once - expresión usada en Chile."
+        }
+    },
+    "cena": {
+        "default": "Cena - sustantivo femenino.",
+        "translations": {
+            "en": "Dinner.",
+            "zh": "晚飯 / 晚饭.",
+            "es": "Cena - sustantivo femenino."
+        }
+    },
+    "rato": {
+        "default": "Rato - sustantivo masculino.",
+        "translations": {
+            "en": "While.",
+            "zh": "片刻.",
+            "es": "Rato - sustantivo masculino."
+        }
+    },
+    "temprano": {
+        "default": "Temprano - adverbio.",
+        "translations": {
+            "en": "Early.",
+            "zh": "早.",
+            "es": "Temprano - adverbio."
+        }
+    },
+    "orgullo": {
+        "default": "Orgullo - sustantivo masculino.",
+        "translations": {
+            "en": "Pride.",
+            "zh": "自豪.",
+            "es": "Orgullo - sustantivo masculino."
+        }
+    },
+    "comuníquese": {
+        "default": "Comuníquese - verbo comunicar en modo imperativo.",
+        "translations": {
+            "en": "Communicate.",
+            "zh": "請聯繫 / 请联系.",
+            "es": "Comuníquese - verbo comunicar en modo imperativo."
+        }
+    },
+    "firma": {
+        "default": "Firma - sustantivo femenino.",
+        "translations": {
+            "en": "Signature.",
+            "zh": "簽名.",
+            "es": "Firma - sustantivo femenino."
+        }
+    },
+    "firme": {
+        "default": "Firme - adjetivo.",
+        "translations": {
+            "en": "Firm.",
+            "zh": "堅定 / 坚定.",
+            "es": "Firme - adjetivo."
+        }
+    },
+    "inmóvil": {
+        "default": "Inmóvil - adjetivo.",
+        "translations": {
+            "en": "Motionless.",
+            "zh": "靜止.",
+            "es": "Inmóvil - adjetivo."
+        }
+    },
+    "tono": {
+        "default": "Tono - sustantivo masculino.",
+        "translations": {
+            "en": "Tone.",
+            "zh": "語氣 / 语气.",
+            "es": "Tono - sustantivo masculino."
+        }
+    }
+}

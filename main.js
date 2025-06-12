@@ -1,4 +1,3 @@
-// Updated main.js
 import { Flipbook } from './flipbook.js';
 import { toggleFullscreen, setupModalClose } from './scripts/functions.js';
 import { adjustFontSize, toggleDarkMode } from './scripts/accesibility.js';
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Build resource paths
         const basePath = `${window.location.origin}/curso-lectura-A1/${book}/${chapter}/pages`;
-        const vocabularyPath = `${window.location.origin}/curso-lectura-A1/api/vocabulary.json`;
+        const vocabularyPath = `${window.location.origin}/curso-lectura-A1/${book}/${chapter}/vocabulary.json`;
 
         // Instantiate Flipbook with bgImages map
         const flipbook = new Flipbook(

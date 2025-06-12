@@ -324,7 +324,74 @@ body {
     color: white;
 }
 
+.button-pop-up-h5p-no-margin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 120px; */
+    background-color: var(--verde-claro);
+    border: none !important;
+    color: white;
+    padding: 30px 15px;
+    text-align: center !important;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    max-width: 60%;
+    height: 40px;
+}
 
+
+.button-pop-up-h5p-no-margin:hover {
+    background-color: #bd1212;
+    transition: all 0.5s ease;
+    transform: scale(1.3);
+    color: white;
+}
+
+.button-traducciones {
+
+    display: flex;
+    align-items: center;
+    margin-top: 120px;
+    background-color: var(--verde-claro);
+    border: none !important;
+    color: white;
+    padding: 15px 40px;
+    text-align: center !important;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 40px;
+    /* margin: 0 auto; */
+}
+
+.button-traducciones:hover {
+    background-color: #bd1212;
+    transition: all 0.5s ease;
+    transform: scale(1.3);
+    color: white;
+}
+
+
+.boton-traducciones-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .boton-traducciones-container {
+        flex-direction: row;
+        gap: 0 !important;
+
+    }
+}
 
 /* ACCESIBILITY */
 
@@ -396,6 +463,8 @@ body {
         padding: 8px 15px;
         gap: 10px;
     }
+
+
 }
 
 
@@ -842,7 +911,7 @@ audio {
 html,
 body {
     margin: 0;
-    height: 100%;
+    /* height: 100%; */
 }
 
 #fullscreen-container {
@@ -881,3 +950,39 @@ body {
     bottom: auto;
     left: auto;
 } */
+
+
+
+/* Contenedor general que emula el recuadro de la imagen */
+.email-container {
+    border: 1px solid #000;
+    padding: 10px;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    text-align: left;
+    margin-top: 15px;
+
+}
+
+.email-container p {
+    font-size: 13px !important;
+}
+
+/* Estilo para la línea de "Asunto:" en negrita */
+.email-container .asunto {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+/* Estilo para la etiqueta "Mensaje:" en negrita */
+.email-container .mensaje-label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+/* Estilo para el bloque de texto del mensaje, preservando saltos de línea */
+.email-container .mensaje {
+    /* white-space: pre-wrap; */
+    margin-left: 1em;
+}
